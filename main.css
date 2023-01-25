@@ -1,0 +1,111 @@
+@font-face {
+    font-family: neuemedium;
+    src: url(/assets/font/neue-haas-display-7.ttf);
+}
+
+#header{
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 0;
+
+}
+.head_container{
+    max-width: 75rem !important;
+    margin: auto !important;
+    width: 100% !important;
+}
+
+
+/* -------NAVBAR BAŞLANGIÇ -------- */
+.top{
+    position: relative;
+    display: flex;
+    justify-content: flex-end;
+    height: 2.5rem;
+    background: rgba(0,0,0,.29);
+    box-shadow: 0 0.0625rem 0.125rem #004e801a, 0 0.25rem 0.5rem #00000021;
+}
+.not-sticky-bar{
+    height: 2.5rem;
+}
+.not-sticky-bar ul li a{
+    font-weight: 400;
+    font-size: .950rem;
+    color: #fff;
+    font-family: neuemedium;
+    cursor: pointer;
+    text-decoration: none;
+}
+.not-sticky-bar ul li {
+    display: inline-block;
+}.collapse ul li a{
+    margin-left: 1.25rem;
+    margin-right: 1.25rem;
+    font-family: neuemedium;
+    color: #fff;
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 1.2rem;
+    font-weight: 400;
+
+}.collapse ul li a:hover{
+    color: #c1e3cc;
+}.not-sticky-bar ul li a:hover{
+    color: #c1e3cc;
+}
+/* -------NAVBAR BİTİŞ -------- */
+/* -------BANNER BACKGROUND BAŞLANGIÇ -------- */
+.navbar-brand img{
+    width: 180px;
+}
+.section_container{
+    background: linear-gradient(180deg,#178f64 0%,#078283 47.02%,#008fc3 96.03%);
+    height: 32.625rem;
+}
+.home-for-bg{
+    background-image: url('assets/home-bg.png');
+    padding-bottom: 8.4375rem;
+    padding-top: 4.6875rem;
+    height: 100%;
+    width: 100%;
+    height: 100%;
+    background-position: bottom center;
+    background-repeat: no-repeat;
+}
+/* -------BANNER BACKGROUND BİTİŞ -------- */
+/* -------BANNER BUTTON BAŞLANGIÇ-------- */
+.banner-btn .btn{
+    background-color: #fff !important;
+    border: transparent !important;
+    color: #219752 !important;
+    font-family: neuemedium !important;
+    min-width: 230px;
+    min-height: 50px;
+    font-size: .950rem;
+    font-weight: 400;
+    text-decoration: none;
+    
+}.banner-btn .btn:hover{
+    background-color: #219752 !important;
+    border: transparent !important;
+    color: #fff !important;
+    font-family: neuemedium !important;
+    min-width: 230px;
+    min-height: 50px;
+    
+}
+.home-pg-for-buttons{
+    padding-top: 7.375rem;
+}
+/* -------BANNER BUTTON BTİŞ-------- */
+/* -------İŞLEM SÜRECİ BAŞLANGIÇ-------- */
+.process{
+    padding-top: 3rem !important;
+    padding-right: 10rem !important;
+    padding-left: 10rem !important;
+}.process-item{
+    display: flex;
+    justify-content: center;
+}
+/* -------İŞLEM SÜRECİ BİTİŞ-------- */
