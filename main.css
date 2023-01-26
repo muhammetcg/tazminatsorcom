@@ -3,14 +3,25 @@
     src: url(/assets/font/neue-haas-display-7.ttf);
 }
 
-#header{
+@font-face {
+    font-family: neuethin;
+    src: url(/assets/font/neue-haas-display-xx.ttf);
+}
+
+@font-face {
+    font-family: neuethin2x;
+    src: url(/assets/font/neue-haas-display-x.ttf);
+}
+
+#header {
     top: 0;
     left: 0;
     right: 0;
     height: 0;
 
 }
-.head_container{
+
+.head_container {
     max-width: 75rem !important;
     margin: auto !important;
     width: 100% !important;
@@ -18,18 +29,20 @@
 
 
 /* -------NAVBAR BAŞLANGIÇ -------- */
-.top{
+.top {
     position: relative;
     display: flex;
     justify-content: flex-end;
     height: 2.5rem;
-    background: rgba(0,0,0,.29);
+    background: rgba(0, 0, 0, .29);
     box-shadow: 0 0.0625rem 0.125rem #004e801a, 0 0.25rem 0.5rem #00000021;
 }
-.not-sticky-bar{
+
+.not-sticky-bar {
     height: 2.5rem;
 }
-.not-sticky-bar ul li a{
+
+.not-sticky-bar ul li a {
     font-weight: 400;
     font-size: .950rem;
     color: #fff;
@@ -37,9 +50,12 @@
     cursor: pointer;
     text-decoration: none;
 }
+
 .not-sticky-bar ul li {
     display: inline-block;
-}.collapse ul li a{
+}
+
+.collapse ul li a {
     margin-left: 1.25rem;
     margin-right: 1.25rem;
     font-family: neuemedium;
@@ -49,21 +65,28 @@
     font-size: 1.2rem;
     font-weight: 400;
 
-}.collapse ul li a:hover{
-    color: #c1e3cc;
-}.not-sticky-bar ul li a:hover{
+}
+
+.collapse ul li a:hover {
     color: #c1e3cc;
 }
+
+.not-sticky-bar ul li a:hover {
+    color: #c1e3cc;
+}
+
 /* -------NAVBAR BİTİŞ -------- */
 /* -------BANNER BACKGROUND BAŞLANGIÇ -------- */
-.navbar-brand img{
+.navbar-brand img {
     width: 180px;
 }
-.section_container{
-    background: linear-gradient(180deg,#178f64 0%,#078283 47.02%,#008fc3 96.03%);
+
+.section_container {
+    background: linear-gradient(180deg, #178f64 0%, #078283 47.02%, #008fc3 96.03%);
     height: 32.625rem;
 }
-.home-for-bg{
+
+.home-for-bg {
     background-image: url('assets/home-bg.png');
     padding-bottom: 8.4375rem;
     padding-top: 4.6875rem;
@@ -73,39 +96,168 @@
     background-position: bottom center;
     background-repeat: no-repeat;
 }
+
 /* -------BANNER BACKGROUND BİTİŞ -------- */
 /* -------BANNER BUTTON BAŞLANGIÇ-------- */
-.banner-btn .btn{
+.banner-btn .btn {
     background-color: #fff !important;
     border: transparent !important;
     color: #219752 !important;
     font-family: neuemedium !important;
-    min-width: 230px;
+    min-width: 260px;
     min-height: 50px;
     font-size: .950rem;
     font-weight: 400;
     text-decoration: none;
-    
-}.banner-btn .btn:hover{
+
+}
+
+.banner-btn .btn:hover {
     background-color: #219752 !important;
     border: transparent !important;
     color: #fff !important;
     font-family: neuemedium !important;
-    min-width: 230px;
+    min-width: 260px;
     min-height: 50px;
-    
+    transition: 0.3s;
+
 }
-.home-pg-for-buttons{
+
+.home-pg-for-buttons {
     padding-top: 7.375rem;
 }
+
 /* -------BANNER BUTTON BTİŞ-------- */
 /* -------İŞLEM SÜRECİ BAŞLANGIÇ-------- */
-.process{
+.process {
     padding-top: 3rem !important;
-    padding-right: 10rem !important;
-    padding-left: 10rem !important;
-}.process-item{
+    text-align: center;
+}
+
+.process-item {
     display: flex;
     justify-content: center;
+    padding-top: 10px;
+    color: #178546;
+    font-family: neuemedium;
 }
+
 /* -------İŞLEM SÜRECİ BİTİŞ-------- */
+
+.main-content {
+    padding-top: 17rem;
+}
+
+.main-content-title {
+    display: inline-block;
+    color: #178546;
+    margin-bottom: 1.5rem;
+    padding: 1 0rem;
+    font-family: neuemedium;
+    font-size: 3rem;
+    line-height: 3.75rem;
+    font-weight: 400;
+    letter-spacing: normal;
+}
+
+.main-video-card {
+    box-shadow: 0 0.25rem 0.5rem #004e8014, 0 0.75rem 1.5rem #0000001f;
+    margin-bottom: 1.5rem;
+    padding: 0 1rem;
+    border: transparent !important;
+}
+
+.main-video-card .card-body .btn {
+    background-color: #178546;
+    border: transparent;
+}
+
+.main-video-card .card-body .btn:hover {
+    background-color: #fff;
+    color: #178546;
+    border: 1px solid #178546;
+    transition: 0.4s;
+}
+
+.main-about-card {
+    box-shadow: 0 0.25rem 0.5rem #004e8014, 0 0.75rem 1.5rem #0000001f;
+    border: transparent !important;
+
+}
+
+.more-button {
+    font-size: 1rem;
+    letter-spacing: .25px;
+    font-family: neuemedium;
+    color: #178546;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.more-button:hover {
+    text-decoration: underline;
+    color: #178546;
+}
+
+
+.main-content2-cardbody h4,
+.main-content2-cardbody p {
+    display: flex;
+    padding-left: 1rem;
+}
+
+.progressbar {
+    counter-reset: step;
+}
+
+.progressbar li {
+    list-style: none;
+    display: flex;
+    position: relative;
+}
+
+.progressbar li:before {
+    content: counter(step);
+    counter-increment: step;
+    width: 50px;
+    height: 50px;
+    line-height: 30px;
+    border: 1px solid #ddd;
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 0 80px 0;
+    background-color: #fff;
+}
+
+.progressbar li:after {
+    content: "";
+    position: absolute;
+    width: 1px;
+    height: 100px;
+    background-color: #ddd;
+    top: -100px;
+    right: 95%;
+    z-index: -1;
+}
+
+.progressbar li:first-child:after {
+    content: none;
+}
+
+.progressbar li.active {
+    color: green;
+}
+
+
+
+
+
+.footer-links {
+    padding: 10rem 0;
+}
+
+.footer-container .row .col img {
+    width: 200px;
+}
