@@ -1,17 +1,26 @@
 // Vanilla.JS severiz
 
-// Yapışık Navbar 
+// Yapışık Navbar
 window.onscroll = function () {
   var navbar = document.getElementById("navbar");
+  var navLinks = document.querySelectorAll(".collapse ul li a");
+  var logo = document.querySelector(".navbar-brand img");
   if (window.pageYOffset > 0) {
-    navbar.style.backgroundColor = "red";
-    navbar.style.color = "white";
+    navbar.style.backgroundColor = "white";
     navbar.style.transition = "background-color 0.5s ease, color 0.5s ease";
     navbar.classList.add("sticky");
+    logo.src = "assets/img/PNG.png";
+    for (var i = 0; i < navLinks.length; i++) {
+      navLinks[i].style.color = "black";
+    }
   } else {
-    navbar.style.backgroundColor = "";
-    navbar.style.color = "";
+    navbar.style.removeProperty("background-color");
+    navbar.style.removeProperty("color");
     navbar.classList.remove("sticky");
+    logo.src = "assets/img/BEYAZ-PNG.png";
+    for (var i = 0; i < navLinks.length; i++) {
+      navLinks[i].style.removeProperty("color");
+    }
   }
 };
 
@@ -135,7 +144,6 @@ function saveStep3() {
 let thirdVariable = saveStep3();
 localStorage.setItem("thirdVariable", thirdVariable);
 
-
 // Aşama 5
 function saveStep5() {
   const value1 = 1;
@@ -213,7 +221,6 @@ function saveStep5() {
 //       localStorage.setItem("fourthVariable", fourthVariable);
 //     });
 //   }
-
 
 // Adım 6
 function saveStep6() {

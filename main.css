@@ -71,8 +71,8 @@ html, body {
 
 }
 
-.collapse ul li a:hover {
-    color: #c1e3cc;
+.collapse .dropdown-menu li a:hover {
+    background-color: #c1e3cc;
 }
 
 .not-sticky-bar ul li a:hover {
@@ -103,6 +103,7 @@ html, body {
 
 .collapse > ul .dropdown-item {
     color: black;
+    margin-left: 0;
 }
 
  
