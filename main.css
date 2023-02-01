@@ -285,9 +285,6 @@ html, body {
 }
 
 
-
-
-
 .footer-links {
     padding: 10rem 0;
 }
@@ -298,58 +295,4 @@ html, body {
 
 
 
-.wizard-container {
-    width: 800px;
-    margin: 0 auto;
-  }
-  
-  .progress-bar {
-    display: flex;
-    justify-content: space-between;
-    margin: 30px 0;
-  }
-  
-  .progress-step {
-    width: calc(100% / 7);
-    height: 8px;
-    background-color: lightgray;
-    border-radius: 4px;
-  }
-  
-  .progress-step.active {
-    background-color: orange;
-  }
-  
-  .step {
-    display: none;
-    padding: 40px;
-    background-color: white;
-    border-radius: 10px;
-    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
-    margin-bottom: 40px;
-  }
-  
-  .step input[type="text"],
-  .step input[type="email"] {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 20px;
-    border-radius: 5px;
-    border: 1px solid lightgray;
-    font-size: 16px;
-  }
-  
-  .step button {
-    padding: 10px 20px;
-    background-color: orange;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    font-size: 16px;
-    cursor: pointer;
-  }
-  
-  .step button:hover {
-    background-color: darkorange;
-  }
   
