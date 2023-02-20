@@ -533,3 +533,94 @@ function kıdemStep3() {
   const result = ((parseInt(secondNumber) + parseInt(thirdNumberVal)) / 30) * parseInt(dateResult); 
   return result;
 }
+
+
+// Miras Hesaplamaları
+
+// Adım1
+function handleStatusButton() {
+  let kazaStatusRadio = document.querySelector(".status:checked").value;
+  localStorage.setItem('kazaStatusRadio', kazaStatusRadio);
+  console.log(kazaStatusRadio)
+}
+
+// Adım2 
+function handleRoleButton() {
+  let roleRadio = document.querySelector(".role:checked").value;
+  localStorage.setItem('roleRadio', roleRadio);
+
+  const dateSelected = document.getElementById('accident-date');
+  const dateRange = (localStorage.getItem('kazaStatusRadio') === 'Ölümlü') ? 15 : 7;
+  const currentDate = new Date().getFullYear();
+  for (let i = currentDate - dateRange; i <= currentDate; i++) {
+    const option = document.createElement('option');
+    option.value = i;
+    option.textContent = i;
+    dateSelected.appendChild(option);
+  }
+  console.log(roleRadio);
+}
+
+// Adım3
+function handleAccidentDateSelect() {
+  const dateSelected = document.getElementById('accident-date');
+  localStorage.setItem('accidentDateSelect', dateSelected.value);
+  console.log(dateSelected.value);
+}
+
+
+// Adım4
+function handleKusurOraniRadioButtons() {
+  const radioButtons = document.querySelector('.kusurOrani:checked').value;
+  localStorage.setItem('radioButtons', radioButtons);
+  console.log(radioButtons)
+
+}
+
+// Adım5
+function handlePriceStep() {
+const kusurOrani = localStorage.getItem("radioButtons");
+const maasInput = document.getElementById("maasInput"); // Input elementine erişim
+const maasMiktari = maasInput.value.replace(/[^\d]/g, ""); // Kullanıcının girdiği maaş miktarını alma
+localStorage.setItem('maasMiktari', maasMiktari);
+console.log(maasMiktari)
+  const result = ((maasMiktari * kusurOrani) / 100);
+  const z = (maasMiktari - result) / 30;
+  localStorage.setItem('z', z);
+  console.log(z)
+}
+
+// Adım6
+function handleGenderButton() {
+  const genderButtons = document.querySelector('.gender').value;
+  localStorage.setItem('genderButtons', genderButtons);
+  console.log(genderButtons)
+}
+
+//Adım7 
+function handleFinalStep() {
+  const bornYear = document.getElementById("year-input").value.replace(/[^\d]/g, "");
+  console.log(bornYear)
+  console.log(bornYear * 2)
+  let kazaTarihi = localStorage.getItem('accidentDateSelect');
+  let z = localStorage.getItem('z');
+  let genderInfo = localStorage.getItem('genderButtons');
+  if (localStorage.getItem("kazaStatusRadio") === "Ölümlü") {
+      let olumYasi = (kazaTarihi - bornYear); 
+      const retirementAge = (genderInfo === "Erkek") ? 60 : 58;
+      const x = (retirementAge - olumYasi) * 365.25;
+      const mainResult = z * x;
+      document.getElementById("sonuc").innerHTML = mainResult;
+
+  } else {
+    const nowDate = new Date().getFullYear();
+      let yas = (nowDate - bornYear);
+      const retirementAge = (genderInfo === "Erkek") ? 60 : 58;
+      const x2 = (retirementAge - yas) * 365.25;
+      const mainResult = z * x2;
+      document.getElementById("sonuc").innerHTML = mainResult;
+  }
+
+}
+
+
