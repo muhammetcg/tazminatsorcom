@@ -188,6 +188,27 @@ for (var i = 0; i < inputsAll.length; i++) {
   });
 }
 
+// Yıl inputunu hariç tutma ve 4 hane sanırı
+var yearInput = document.getElementById("year-input");
+
+yearInput.addEventListener("input", function (event) {
+  var number = removeThousandSeparators(event.target.value);
+  if (isNaN(number) || number.length > 4) {
+    event.target.value = "";
+    return;
+  }
+  event.target.value = number;
+});
+
+
+// Hane sınırı validasyonu 
+//  var number = removeThousandSeparators(event.target.value);
+// if (isNaN(number) || number.length > 4) {
+//   inputBasamak.value = "";
+//   return;
+// }
+
+
 function getSpecialCharsOnSides(x, cursorPosition) {
   var specialCharsLeft = x
     .substring(0, cursorPosition)
