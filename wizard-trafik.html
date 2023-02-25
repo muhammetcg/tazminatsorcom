@@ -309,7 +309,7 @@
           aria-valuemax="6"
           style="width: 20%"
         >
-          Adım 1 - 10
+          Adım 1 - 8
         </div>
       </div>
       <div class="navbar">
@@ -331,37 +331,37 @@
                     <label
                       class="form-label"
                       style="display: block; margin-bottom: 1.5em"
-                      >Miras Bırakan Tarafından Hazırlanan Bir Vasiyetname Var mı?</label
+                      >Trafik Kazası Sonucu Yaşadığınız Mağduriyet;</label
                     >
                     <input
                       type="radio"
-                      class="btn-check mirasStepOne"
+                      class="btn-check status"
                       name="options-outlined "
                       id="success-outlined"
                       autocomplete="off"
-                      value="Var"
+                      value="Ölümlü"
                       required
                     />
                     <label class="btn btn-outline-success" for="success-outlined"
-                      >Var</label
+                      >Ölümlü</label
                     >
     
                     <input
                       type="radio"
-                      class="btn-check mirasStepOne"
+                      class="btn-check status"
                       name="options-outlined " 
                       id="success-2-outlined"
                       autocomplete="off"
-                      value="Yok"
+                      value="Yaralanmalı"
                       required
                     />
                     <label class="btn btn-outline-success" for="success-2-outlined"
-                      >Yok</label
+                      >Yaralanmalı</label
                     >
                   </div>
             </div>
           </div>
-          <button type="button" class="btn btn-info next" onclick="mirasStep1()">
+          <button type="button" class="btn btn-info next" onclick="handleStatusButton()">
             İleri
           </button>
         </div>
@@ -373,32 +373,44 @@
                     <label
                       class="form-label"
                       style="display: block; margin-bottom: 1.5em"
-                      >Miras Bırakanın Eşi Yaşıyor mu?</label
+                      >Trafik Kazasında Hangi Konumdaydınız?;</label
                     >
                     <input
                       type="radio"
-                      class="btn-check mirasStepTwo"
+                      class="btn-check role"
                       name="options-outlined"
                       id="success-3-outlined"
                       autocomplete="off"
-                      value="Evet"
+                      value="Sürücü"
                       required
                     />
                     <label class="btn btn-outline-success" for="success-3-outlined"
-                      >Evet</label
+                      >Sürücü</label
                     >
                     <input
                       type="radio"
-                      class="btn-check mirasStepTwo"
+                      class="btn-check role"
                       name="options-outlined"
                       id="success-4-outlined"
                       autocomplete="off"
-                      value="Hayır"
+                      value="Yolcu"
                       required
                     />
                     <label class="btn btn-outline-success" for="success-4-outlined"
-                      >Hayır</label
+                      >Yolcu</label
                     >
+                    <input
+                    type="radio"
+                    class="btn-check role"
+                    name="options-outlined"
+                    id="success-5-outlined"
+                    autocomplete="off"
+                    value="Yaya"
+                    required
+                  />
+                  <label class="btn btn-outline-success" for="success-5-outlined"
+                    >Yaya</label
+                  >
                   </div>
             </div>
             <button type="button" id="backButton" class="btn btn-info prev">
@@ -407,7 +419,7 @@
             <button
               type="button"
               class="btn btn-info next"
-              onclick="mirasStep2()"
+              onclick="handleRoleButton()"
             >
               İleri
             </button>
@@ -416,20 +428,19 @@
         <div class="tab-pane" id="step2">
           <div class="well">
             <div class="row g-3">
-                <div class="col-md-4 stepContainer">
-                    <br />
-                    <label class="form-label" style="display: block; margin-bottom: 1.5em">Miras Bırakanın Çocuğu Var mı? (Varsa Sayısını Yazınız)</label>
-                    <input type="radio" class="btn-check mirasStepThree" name="options-outlined" id="success-5-outlined" autocomplete="off" value="Var" required>
-                    <label class="btn btn-outline-success" for="success-5-outlined">Var</label>
-                    <input type="radio" class="btn-check mirasStepThree" name="options-outlined" id="success-6-outlined" autocomplete="off" value="Yok" required>
-                    <label class="btn btn-outline-success" for="success-6-outlined">Yok</label>
-                  </div>
-                  
+              <div class="col-md-4">
+                <br />
+                <label class="form-label">Kaza tarihi:</label>
+                <select id="accident-date" name="accident-date" class="form-select" aria-label="Default select example">
+                  <option value="" selected>Lütfen bir tarih seçiniz.</option>
+                </select>
+
+              </div>
             </div>
             <button type="button" id="backButton" class="btn btn-info prev">
               Geri
             </button>
-            <button type="button" class="btn btn-info next" onclick=" mirasStep3()">
+            <button type="button" class="btn btn-info next" onclick="handleAccidentDateSelect()">
               İleri
             </button>
           </div>
@@ -437,45 +448,135 @@
         <div class="tab-pane" id="step2">
           <div class="well">
             <div class="row g-3">
-
-                    <div class="col-md-4">
-                        <br />
-                        <label
-                          class="form-label"
-                          style="display: block; margin-bottom: 1.5em"
-                          >Miras Bırakanın Annesi Yaşıyor Mu?</label
-                        >
-                        <input
-                          type="radio"
-                          class="btn-check mirasStepFourth"
-                          name="options-outlined"
-                          id="success-7-outlined"
-                          autocomplete="off"
-                          value="Evet"
-                          required
-                        />
-                        <label class="btn btn-outline-success" for="success-7-outlined"
-                          >Evet</label
-                        >
-                        <input
-                          type="radio"
-                          class="btn-check mirasStepFourth"
-                          name="options-outlined"
-                          id="success-8-outlined"
-                          autocomplete="off"
-                          value="Hayır"
-                          required
-                        />
-                        <label class="btn btn-outline-success" for="success-8-outlined"
-                          >Hayır</label
-                        >
-                      </div>
-
+                <div class="col-md-6" style="margin-top: 40px">
+                    <label class="form-label">Trafik Kazasında Kusur Oranınız:</label>
+                    <div class="col-md-12" style="margin-top: 1em">
+                      <input
+                        type="radio"
+                        class="btn-check kusurOrani"
+                        name="options-outlined"
+                        id="success-6-outlined"
+                        autocomplete="off"
+                        value="0"
+                        required
+                      />
+                      <label
+                        class="btn btn-outline-success"
+                        for="success-6-outlined"
+                        >%0</label
+                      >
+    
+                      <input
+                        type="radio"
+                        class="btn-check kusurOrani"
+                        name="options-outlined"
+                        id="success-7-outlined"
+                        autocomplete="off"
+                        value="25"
+                        required
+                      />
+                      <label
+                        class="btn btn-outline-success"
+                        for="success-7-outlined"
+                        >%25</label
+                      >
+    
+                      <input
+                        type="radio"
+                        class="btn-check kusurOrani"
+                        name="options-outlined"
+                        id="success-8-outlined"
+                        autocomplete="off"
+                        value="50"
+                        required
+                      />
+                      <label
+                        class="btn btn-outline-success"
+                        for="success-8-outlined"
+                        >%50</label
+                      >
+    
+                      <input
+                        type="radio"
+                        class="btn-check kusurOrani"
+                        name="options-outlined"
+                        id="success-9-outlined"
+                        autocomplete="off"
+                        value="75"
+                        required
+                      />
+                      <label
+                        class="btn btn-outline-success"
+                        for="success-9-outlined"
+                        >%75</label
+                      >
+    
+                      <input
+                        type="radio"
+                        class="btn-check kusurOrani"
+                        name="options-outlined"
+                        id="success-10-outlined"
+                        autocomplete="off"
+                        value="100"
+                        required
+                      />
+                      <label
+                        class="btn btn-outline-success"
+                        for="success-10-outlined"
+                        >%100</label
+                      >
+    
+                      <input
+                        type="radio"
+                        class="btn-check kusurOrani"
+                        name="options-outlined"
+                        id="success-11-outlined"
+                        autocomplete="off"
+                        value=""
+                        required
+                      />
+                      <label
+                        class="btn btn-outline-success"
+                        for="success-11-outlined"
+                        >Bilmiyorum</label
+                      >
+                    </div>
+                  </div>
             </div>
             <button type="button" id="backButton" class="btn btn-info prev">
               Geri
             </button>
-            <button type="button" class="btn btn-info next" onclick="mirasStep4()">İleri</button>
+            <button type="button" class="btn btn-info next" onclick="handleKusurOraniRadioButtons()">İleri</button>
+          </div>
+        </div>
+        <div class="tab-pane" id="step2">
+          <div class="well">
+            <div class="row g-3">
+                <div class="col-md-4">
+                    <br />
+                    <label class="form-label"
+                      >Kaza Tarihinde belgelenebilir Resmî Geliriniz:</label
+                    >
+                    <input
+                      class="form-control input-lg"
+                      type="text"
+                      value=""
+                      placeholder="Brüt Maaşınızı Giriniz"
+                      id="maasInput"
+                      required
+                    />
+                  </div>
+            </div>
+            <button type="button" id="backButton" class="btn btn-info prev">
+              Geri
+            </button>
+            <button
+              type="button"
+              class="btn btn-info next"
+              onclick="handlePriceStep()"
+            >
+              İleri
+            </button>
           </div>
         </div>
         <div class="tab-pane" id="step2">
@@ -485,83 +586,40 @@
                     <br />
                     <label
                       class="form-label"
-                      style="display: block; margin-bottom: 1.5em"
-                      >Miras Bırakanın Babası Yaşıyor Mu?</label
+                      style="
+                        display: block;
+                        margin-bottom: 1.5em;
+                        width: max-content;
+                      "
+                      >Cinsiyet:</label
                     >
                     <input
                       type="radio"
-                      class="btn-check mirasStepFifth"
+                      class="btn-check gender"
                       name="options-outlined"
-                      id="success-9-outlined"
-                      autocomplete="off"
-                      value="Evet"
-                      required
-                    />
-                    <label class="btn btn-outline-success" for="success-9-outlined"
-                      >Evet</label
-                    >
-                    <input
-                      type="radio"
-                      class="btn-check mirasStepFifth"
-                      name="options-outlined"
-                      id="success-10-outlined"
-                      autocomplete="off"
-                      value="Hayır"
-                      required
-                    />
-                    <label class="btn btn-outline-success" for="success-10-outlined"
-                      >Hayır</label
-                    >
-                  </div>
-                </div>
-            <button type="button" id="backButton" class="btn btn-info prev">
-              Geri
-            </button>
-            <button
-              type="button"
-              class="btn btn-info next"
-              onclick="mirasStep5()"
-            >
-              İleri
-            </button>
-
-        </div>
-    </div>
-        <div class="tab-pane" id="step2">
-          <div class="well">
-            <div class="row g-3">
-                <div class="col-md-4 stepContainer2">
-                    <br />
-                    <label
-                      class="form-label"
-                      style="display: block; margin-bottom: 1.5em"
-                      >Miras Bırakanın Kardeşleri Var Mı? (Varsa yazınız.)</label
-                    >
-                    <input
-                      type="radio"
-                      class="btn-check mirasStepSixth"
-                      name="options-outlined"
-                      id="success-11-outlined"
-                      autocomplete="off"
-                      value="Var"
-                      required
-                    />
-                    <label class="btn btn-outline-success" for="success-11-outlined"
-                      >Var</label
-                    >
-                    <input
-                      type="radio"
-                      class="btn-check mirasStepSixth"
-                      name="options-outlined"
+                      value="Erkek"
                       id="success-12-outlined"
                       autocomplete="off"
-                      value="Yok"
                       required
                     />
                     <label class="btn btn-outline-success" for="success-12-outlined"
-                      >Yok</label
+                      >Erkek</label
+                    >
+    
+                    <input
+                      type="radio"
+                      class="btn-check gender"
+                      name="options-outlined"
+                      value="Kadın"
+                      id="success-13-outlined"
+                      autocomplete="off"
+                      required
+                    />
+                    <label class="btn btn-outline-success" for="success-13-outlined"
+                      >Kadın</label
                     >
                   </div>
+
             </div>
             <button type="button" id="backButton" class="btn btn-info prev">
               Geri
@@ -569,7 +627,7 @@
             <button
               type="button"
               class="btn btn-info next"
-              onclick="mirasStep6()"
+              onclick="handleGenderButton()"
             >
               İleri
             </button>
@@ -578,136 +636,20 @@
         <div class="tab-pane" id="step2">
           <div class="well">
             <div class="row g-3">
-                <div class="col-md-4">
-                    <br />
-                    <label
-                      class="form-label"
-                      style="display: block; margin-bottom: 1.5em"
-                      >Miras Bırakanın Büyükbabası Yaşıyor Mu?</label
-                    >
-                    <input
-                      type="radio"
-                      class="btn-check mirasStepSeventh"
-                      name="options-outlined"
-                      id="success-13-outlined"
-                      autocomplete="off"
-                      value="Evet"
-                      required
-                    />
-                    <label class="btn btn-outline-success" for="success-13-outlined"
-                      >Evet</label
-                    >
-                    <input
-                      type="radio"
-                      class="btn-check mirasStepSeventh"
-                      name="options-outlined"
-                      id="success-14-outlined"
-                      autocomplete="off"
-                      value="Hayır"
-                      required
-                    />
-                    <label class="btn btn-outline-success" for="success-14-outlined"
-                      >Hayır</label
-                    >
-                  </div>               
+                <div class="form-group">
+                    <label for="year-input">Doğum Yılı:</label>
+                    <input type="text" class="form-control" id="year-input" name="year" min="1900" max="2023" required>
+                </div>                  
             </div>
             <button type="button" id="backButton" class="btn btn-info prev">
               Geri
             </button>
-            <button type="button" class="btn btn-info next" onclick="mirasStep7()">
+            <button type="button" class="btn btn-info next" onclick="handleFinalStep()">
               İleri
             </button>
           </div>
         </div>
         <div class="tab-pane" id="step2">
-            <div class="well">
-              <div class="row g-3">
-                  <div class="col-md-4">
-                      <br />
-                      <label
-                        class="form-label"
-                        style="display: block; margin-bottom: 1.5em"
-                        >Miras Bırakanın Büyükannesi Yaşıyor Mu?</label
-                      >
-                      <input
-                        type="radio"
-                        class="btn-check mirasStepEighth"
-                        name="options-outlined"
-                        id="success-15-outlined"
-                        autocomplete="off"
-                        value="Evet"
-                        required
-                      />
-                      <label class="btn btn-outline-success" for="success-15-outlined"
-                        >Evet</label
-                      >
-                      <input
-                        type="radio"
-                        class="btn-check mirasStepEighth"
-                        name="options-outlined"
-                        id="success-16-outlined"
-                        autocomplete="off"
-                        value="Hayır"
-                        required
-                      />
-                      <label class="btn btn-outline-success" for="success-16-outlined"
-                        >Hayır</label
-                      >
-                    </div>               
-              </div>
-              <button type="button" id="backButton" class="btn btn-info prev">
-                Geri
-              </button>
-              <button type="button" class="btn btn-info next" onclick="mirasStep8()">
-                İleri
-              </button>
-            </div>
-          </div>
-          <div class="tab-pane" id="step2">
-            <div class="well">
-              <div class="row g-3">
-                  <div class="col-md-4 step-nine-container">
-                      <br />
-                      <label
-                        class="form-label"
-                        style="display: block; margin-bottom: 1.5em"
-                        >Miras Bırakanın Büyükannesi Yaşıyor Mu?</label
-                      >
-                      <input
-                        type="radio"
-                        class="btn-check mirasStepNinth"
-                        name="options-outlined"
-                        id="success-17-outlined"
-                        autocomplete="off"
-                        value="Evet"
-                        required
-                      />
-                      <label class="btn btn-outline-success" for="success-17-outlined"
-                        >Evet</label
-                      >
-                      <input
-                        type="radio"
-                        class="btn-check mirasStepNinth"
-                        name="options-outlined"
-                        id="success-18-outlined"
-                        autocomplete="off"
-                        value="Hayır"
-                        required
-                      />
-                      <label class="btn btn-outline-success" for="success-18-outlined"
-                        >Hayır</label
-                      >
-                    </div>               
-              </div>
-              <button type="button" id="backButton" class="btn btn-info prev">
-                Geri
-              </button>
-              <button type="button" class="btn btn-info next" onclick="mirasStep9()">
-                İleri
-              </button>
-            </div>
-          </div>
-        <div class="tab-pane" id="wizard-step-9">
             <div class="well">
               <div class="row g-3">
                 <div
@@ -722,7 +664,7 @@
                       margin-bottom: 1.5em;
                       width: max-content;
                     "
-                    >Yasal Mirasçıların Kişi Başına Düşen Miras Payı:</label
+                    >Hesaplama Sonucu:</label
                   >
                   <label
                     id="sonuc"
@@ -732,27 +674,8 @@
                       margin-bottom: 1.5em;
                       width: max-content;
                     "
-                    >&#37;{{Result}}
+                    >{{mainResult}}
                   </label>
-                  <label
-                  class="form-label"
-                  style="
-                    display: block;
-                    margin-bottom: 1.5em;
-                    width: max-content;
-                  "
-                  >Varsa Eş Payı:</label
-                >
-                <label
-                  id="sonuc2"
-                  class="form-label"
-                  style="
-                    display: block;
-                    margin-bottom: 1.5em;
-                    width: max-content;
-                  "
-                  >&#37;{{esPayi}}
-                </label>
                 </div>
                 <div class="col-md-8">
                   <div class="formbold-main-wrapper">
