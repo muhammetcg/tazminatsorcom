@@ -17,7 +17,7 @@ window.onscroll = function () {
     navbar.style.removeProperty("background-color");
     navbar.style.removeProperty("color");
     navbar.classList.remove("sticky");
-    logo.src = "assets/img/BEYAZ-PNG.png";
+    logo.src = "assets/img/PNG.png";
     for (var i = 0; i < navLinks.length; i++) {
       // navLinks[i].style.transition = "color 0.5s ease";
       navLinks[i].style.removeProperty("color");
