@@ -651,7 +651,7 @@ function handleFinalStep() {
 function mirasStep1() {
   let mirasStepOneRadio = document.querySelector(".mirasStepOne:checked").value;
   localStorage.setItem('mirasStepOneRadio', mirasStepOneRadio);
-  console.log(mirasStepOneRadio);
+  console.log("Birinci input veri:" + mirasStepOneRadio);
 
   if (mirasStepOneRadio === 'Var') {
       currentTab = tabContents.length - 1;
@@ -671,23 +671,27 @@ function mirasStep1() {
 // Adım2 
 function mirasStep2() {
   let mirasStepSecondRadio = document.querySelector(".mirasStepTwo:checked").value;
+  console.log("İkinci input veri:" + mirasStepSecondRadio);
   localStorage.setItem('mirasStepSecondRadio', mirasStepSecondRadio);
-  let mirasStepSecondValue;
+  let mirasStepSecondValue = 0; // varsayılan değer
   if (mirasStepSecondRadio === 'Evet') {
     mirasStepSecondValue = 25;
-  }
-  localStorage.setItem('mirasStepSecondValue', mirasStepSecondValue);
-  mirasStep3(mirasStep2); // mirasStep2 fonksiyonu parametre olarak ekleniyor
-}
+    localStorage.setItem('mirasStepSecondValue', mirasStepSecondValue);
 
+  }
+
+  console.log("İkinci değişkene ilk değer ataması2:" +   mirasStepSecondValue);
+  mirasStep3();
+}
 // Adım 3
-function mirasStep3(mirasStep2Func) {
+function mirasStep3() {
   const varButton = document.getElementById("success-5-outlined");
   const yokButton = document.getElementById("success-6-outlined");
   let flag = false; // flag değişkeni oluşturuldu
-
   varButton.addEventListener("click", () => {
-    localStorage.setItem("mirasStepThirdRadio", "Var");
+    const thirdStep = "Var"; // Var butonunun değeri
+    localStorage.setItem("mirasStepThirdRadio", thirdStep);
+    console.log("3. adım radio button veri:" + thirdStep);
     if (!flag) { // flag değişkeni kontrol edildi
       flag = true;
       varButton.style.display = "none";
@@ -701,24 +705,38 @@ function mirasStep3(mirasStep2Func) {
       input.addEventListener("change", () => {
         const input1Value = input.value;
         localStorage.setItem("input1Value", input1Value);
-        console.log(input1Value);
+        console.log("3. adım input veri (var seçilmişse):" + input1Value);
       });
     }
   });
 
   yokButton.addEventListener("click", () => {
-    localStorage.setItem("mirasStepThirdRadio", "Yok");
+    const thirdStep = "Yok";
+    localStorage.setItem("mirasStepThirdRadio", thirdStep);
+    console.log("3. adım radio button veri:" + thirdStep);
+  
     const input = document.querySelector(".input1");
     if (input) {
-      input.parentNode.removeChild(input); // input kaldırıldı
-      flag = false; // flag değişkeni sıfırlandı
-      if (typeof mirasStep2Func === 'function') { // mirasStep2Func fonksiyonu kontrol ediliyor
-        const mirasStepSecondRadio = localStorage.getItem('mirasStepSecondRadio');
-        if (mirasStepSecondRadio === 'Evet') {
-          let mirasStepSecondValue = 50; // mirasStepSecondValue değişkeni güncelleniyor
-          localStorage.setItem('mirasStepSecondValue', mirasStepSecondValue);
-        
-}}}})}
+      input.parentNode.removeChild(input);
+      flag = false;
+    }
+  
+    let mirasStepSecondValue = localStorage.getItem('mirasStepSecondValue');
+    console.log("eski mirasStepSecondValue değeri:" + mirasStepSecondValue)
+    const mirasStepSecondRadio = localStorage.getItem('mirasStepSecondRadio');
+    console.log("mirasStepSecondRadio değeri:" + mirasStepSecondRadio);
+    if (mirasStepSecondRadio === 'Evet') {
+      mirasStepSecondValue = 50;
+      console.log("mirasStepSecondValueNew değeri güncellendi:" + mirasStepSecondValue);
+      localStorage.setItem('mirasStepSecondValue', mirasStepSecondValue);
+    } else if (mirasStepSecondRadio === 'Hayır') {
+      mirasStepSecondValue = null; // mirasStepSecondRadio 'Hayır' ise değeri null yap
+    }
+    console.log("mirasStepSecondRadio değeri:" + mirasStepSecondRadio);
+    console.log("mirasStepSecondValueNew değeri:" + mirasStepSecondValue);
+  });
+  
+}
 
 
 
@@ -726,7 +744,7 @@ function mirasStep3(mirasStep2Func) {
 function mirasStep4() {
   let mirasStepFourthRadio = document.querySelector(".mirasStepFourth:checked").value;
   localStorage.setItem('mirasStepFourthRadio', mirasStepFourthRadio);
-  console.log(mirasStepFourthRadio);
+  console.log("Dördüncü input veri:" + mirasStepFourthRadio);
 
 }
 
@@ -734,20 +752,58 @@ function mirasStep4() {
 function mirasStep5() {
   let mirasStepFifthRadio = document.querySelector(".mirasStepFifth:checked").value;
   localStorage.setItem('mirasStepFifthRadio', mirasStepFifthRadio);
-  console.log(mirasStepFifthRadio);
+  console.log("Beşinci input veri:" + mirasStepFifthRadio);
 
   mirasStep6();
 
 }
 
 // Adım 6
+// function mirasStep6() {
+//   const varButtonSixth = document.getElementById("success-11-outlined");
+//   const yokButtonSixth = document.getElementById("success-12-outlined");
+//   let flag = false; // flag değişkeni oluşturuldu
+
+//   varButtonSixth.addEventListener("click", () => {
+//     let sixthStep = localStorage.setItem("mirasStepSixthRadio", "Var");
+//     console.log("6. adım radio button veri:" + sixthStep);
+//     if (!flag) { // flag değişkeni kontrol edildi
+//       flag = true;
+//       varButtonSixth.style.display = "none";
+//       yokButtonSixth.style.display = "none";
+//       const input2 = document.createElement("input");
+//       input2.classList.add("input2", "form-control", "input-lg");
+//       input2.type = "number";
+//       input2.placeholder = "Sayı giriniz";
+//       const stepContainer2 = document.querySelector(".stepContainer2");
+//       stepContainer2.appendChild(input2);
+//       input2.addEventListener("change", () => {
+//         const input2Value = input2.value;
+//         localStorage.setItem("input2Value", input2Value);
+//         console.log("6. adım input veri (var seçilmişse):" + input2Value)
+//       });
+//     }
+//   });
+
+//   yokButtonSixth.addEventListener("click", () => {
+//     let sixthStep = localStorage.setItem("mirasStepSixthRadio", "Yok");
+//     console.log("6. adım radio button veri:" + sixthStep);
+//     const input2 = document.querySelector(".input2");
+//     if (input2) {
+//       input2.parentNode.removeChild(input2); // input kaldırıldı
+//       flag = false; // flag değişkeni sıfırlandı
+//     }
+//   });
+// }
 function mirasStep6() {
   const varButtonSixth = document.getElementById("success-11-outlined");
   const yokButtonSixth = document.getElementById("success-12-outlined");
   let flag = false; // flag değişkeni oluşturuldu
 
   varButtonSixth.addEventListener("click", () => {
-    localStorage.setItem("mirasStepSixthRadio", "Var");
+    const sixthStep = "Var"; // Var butonunun değeri
+    localStorage.setItem("mirasStepSixthRadio", sixthStep);
+    console.log("6. adım radio button veri:" + sixthStep);
     if (!flag) { // flag değişkeni kontrol edildi
       flag = true;
       varButtonSixth.style.display = "none";
@@ -761,13 +817,15 @@ function mirasStep6() {
       input2.addEventListener("change", () => {
         const input2Value = input2.value;
         localStorage.setItem("input2Value", input2Value);
-        console.log(input2Value)
+        console.log("6. adım input veri (var seçilmişse):" + input2Value)
       });
     }
   });
 
   yokButtonSixth.addEventListener("click", () => {
-    localStorage.setItem("mirasStepSixthRadio", "Yok");
+    const sixthStep = "Yok"; // Yok butonunun değeri
+    localStorage.setItem("mirasStepSixthRadio", sixthStep);
+    console.log("6. adım radio button veri:" + sixthStep);
     const input2 = document.querySelector(".input2");
     if (input2) {
       input2.parentNode.removeChild(input2); // input kaldırıldı
@@ -778,41 +836,60 @@ function mirasStep6() {
 
 
 
+
 // Adım 7
 function mirasStep7() {
   let mirasStepSeventhRadio = document.querySelector(".mirasStepSeventh:checked").value;
   localStorage.setItem('mirasStepSeventhRadio', mirasStepSeventhRadio);
-  console.log(mirasStepSeventhRadio)
+  console.log("Yedinci input veri:" + mirasStepSeventhRadio)
 }
 
 // Adım 8 
 function mirasStep8() {
   let mirasStepEighthRadio = document.querySelector(".mirasStepEighth:checked").value;
   localStorage.setItem('mirasStepEighthRadio', mirasStepEighthRadio);
-  console.log(mirasStepEighthRadio)
+  console.log("Sekizinci input veri:" +mirasStepEighthRadio)
+  mirasStep9();
 }
 
 // Adım 9 
 function mirasStep9() {
-  const yesRadio = document.querySelector(".mirasStepNinth");
-  const noRadio = document.querySelector(".mirasStepNinth");
+  // let mirasStepNinthRadio = document.querySelector(".mirasStepNinth:checked").value;
+  const varButtonNinth = document.getElementById("success-17-outlined");
+  const yokButtonNinth = document.getElementById("success-18-outlined");
 
-  if (yesRadio.checked) {
-    const numberInput = document.createElement("input");
-    yesRadio.style.display = "none";
-    noRadio.style.display = "none";
-    numberInput.setAttribute("type", "number");
-    numberInput.setAttribute("placeholder", "Sayı giriniz");
-    numberInput.setAttribute("id", "step-nine-input");
-    document.getElementById("step-nine-container").appendChild(numberInput);
-    numberInput.addEventListener("input", function() {
-      const value = numberInput.value;
-      localStorage.setItem("mirasStepNinthValue", value);
-    });
+  // if (mirasStepNinthRadio === 'Yok') {
+  //   alert("Üzgünüz, miras paylaşımı hesaplamasında size yardımcı olamıyoruz.");
+  // }
+  let flag = false; // flag değişkeni oluşturuldu
 
-  } else if (noRadio.checked) {
+  varButtonNinth.addEventListener("click", () => {
+    if (!flag) { // flag değişkeni kontrol edildi
+      flag = true;
+      varButtonNinth.style.display = "none";
+      yokButtonNinth.style.display = "none";
+      const input3 = document.createElement("input");
+      input3.classList.add("input3", "form-control", "input-lg");
+      input3.type = "number";
+      input3.placeholder = "Sayı giriniz";
+      const stepContainer3 = document.querySelector(".stepContainer3");
+      stepContainer3.appendChild(input3);
+      input3.addEventListener("change", () => {
+        const input3Value = input3.value;
+        localStorage.setItem("input3Value", input3Value);
+        console.log("9. adım input veri (var seçilmişse):" + input3Value)
+      });
+    }
+  });
+
+  yokButtonNinth.addEventListener("click", () => {
+    const input3 = document.querySelector(".input3");
+    if (input3) {
+      input3.parentNode.removeChild(input3); // input kaldırıldı
+      flag = false; // flag değişkeni sıfırlandı
+    }
     alert("Üzgünüz, miras paylaşımı hesaplamasında size yardımcı olamıyoruz.");
-  }
+  });
   var firstStep =   localStorage.getItem('mirasStepOneRadio');
   var secondStep =   localStorage.getItem('mirasStepSecondRadio');
   var secondStepValue =   localStorage.getItem('mirasStepSecondValue');
@@ -829,27 +906,27 @@ function mirasStep9() {
       let a = (100 - secondStepValue); 
       let Result = (a / thirthStepValue);
       let esPayi = secondStepValue;
-      console.log(Result);
-      document.getElementById("sonuc").innerHTML = Result;
-      document.getElementById("sonuc2").innerHTML = esPayi;
+      console.log("Genel hesaplama ilk if sonucu:" + Result);
+      document.getElementById("sonuc").innerHTML = "&#37;" + Result;
+      document.getElementById("sonuc2").innerHTML = "&#37;" + esPayi;
   } else if (secondStep === 'Hayır' && thirthStep === 'Var' && firstStep === 'Yok') {
       let Result = (100 / thirthStepValue);
       let esPayi = "Bulunmuyor";
-      console.log(Result);
-      document.getElementById("sonuc").innerHTML = Result;
-      document.getElementById("sonuc2").innerHTML = esPayi;
-  } else if (secondStep === 'Evet' && secondStepValue === 50 && firstStep === 'Yok' && fourthStep === 'Yok' && fifthStep === 'Yok' && sixthStep === 'Var')  {
+      console.log("Genel hesaplama ikinci if sonucu:" + Result);
+      document.getElementById("sonuc").innerHTML ="&#37;" + Result;
+      document.getElementById("sonuc2").innerHTML = "&#37;" + esPayi;
+  } else if (secondStep === 'Evet' && secondStepValue == 50 && firstStep === 'Yok' && fourthStep === 'Hayır' && fifthStep === 'Hayır' && sixthStep === 'Var')  {
       let Result = (50 / sixthStepValue)
       let esPayi = secondStepValue;
-      console.log(Result);
-      document.getElementById("sonuc").innerHTML = Result;
-      document.getElementById("sonuc2").innerHTML = esPayi;
-  } else if (firstStep === 'Yok' && secondStep === 'Hayır' && thirthStep === 'Yok' && fourthStep === 'Yok' && fifthStep === 'Yok' && sixthStep === 'Var') {
+      console.log("Genel hesaplama üçüncü if sonucu:" + Result);
+      document.getElementById("sonuc").innerHTML = "&#37;" + Result;
+      document.getElementById("sonuc2").innerHTML = "&#37;" + esPayi;
+  } else if (firstStep === 'Yok' && secondStep === 'Hayır' && thirthStep === 'Yok' && fourthStep === 'Hayır' && fifthStep === 'Hayır' && sixthStep === 'Var') {
       let Result = (100 / sixthStepValue)
       let esPayi = "Bulunmuyor";
-      console.log(Result);
-      document.getElementById("sonuc").innerHTML = Result;
-      document.getElementById("sonuc2").innerHTML = esPayi;
+      console.log("Genel hesaplama dördüncü if sonucu:" + Result);
+      document.getElementById("sonuc").innerHTML = "&#37;" + Result;
+      document.getElementById("sonuc2").innerHTML = "&#37;" + esPayi;
   }
 
 }
