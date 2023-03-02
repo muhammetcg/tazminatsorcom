@@ -495,40 +495,45 @@ function stepName(step) {
 
 function mesaiStep1() {
   // Önce startDate ve endDate değerlerini alınır ve bunları JavaScript Date nesnelerine dönüştürülür.
-  const date1 = new Date(document.getElementById('date1').value);
-  const date2 = new Date(document.getElementById('date2').value);
+  const date1 = new Date(document.getElementById('startDate').value);
+  const date2 = new Date(document.getElementById('endDate').value);
+  console.log(date1)
+  console.log(date2)
   // Net sonuç için bu iki tarih arasındaki fark milisaniye cinsinden hesaplanır ve bu değeri ay cinsine dönüştürür.
   const diffTime1 = Math.abs(date2 - date1);
   const diffMonths = diffTime1 / (1000 * 60 * 60 * 24 * 30.44);
   const diffMonthsRounded = Math.round((diffMonths + Number.EPSILON) * 10) / 10; // Virgülden sonraki 1 basamağı almak için yuvarlama işlemi yapılıyor
-
+  console.log(diffMonthsRounded)
   localStorage.setItem('step1', diffMonthsRounded);
 }
 
 function mesaiStep2() {
-  const inputNumber = document.getElementById("inputNumber").value;
+  const inputNumber = document.getElementById("inputNumber").value.replace(/[^\d]/g, "");
 
   const dividedNumber = inputNumber / 225;
   const multipliedNumber = dividedNumber * 1.5;
-
+  console.log(multipliedNumber)
   localStorage.setItem("multipliedNumber", multipliedNumber);
 }
 
 function mesaiStep3() {
-  const inputNumber = document.getElementById("inputNumber").value;
-
+  const inputNumber = document.getElementById("inputNumberSecond").value.replace(/[^\d]/g, "");
+  console.log(inputNumber)
   if (inputNumber < 45) {
     alert("Üzgünüz, fazla çalışma tazminatı hesaplama konusunda size yardımcı olamıyoruz.");
+    localStorage.clear();
+    window.location.reload();
     return;
+
   }
 
-  const subtractedNumber = inputNumber - 45;
-  const totalMonths = parseInt(localStorage.getItem("totalMonths"));
+  const subtractedNumber = (inputNumber - 45);
+  const totalMonths = parseInt(localStorage.getItem("step1"));
   const multipliedNumber = parseFloat(localStorage.getItem("multipliedNumber"));
-
-  const finalResult = subtractedNumber * totalMonths * multipliedNumber / 7;
-
+  const finalResult = (subtractedNumber * multipliedNumber) / 7;
+  console.log(finalResult)
   localStorage.setItem("finalResult", finalResult);
+  document.getElementById("sonuc").innerHTML = finalResult;
 }
 
 // Kıdem Tazminatı Hesaplamaları 
@@ -538,21 +543,23 @@ function kıdemStep1() {
   const endDate = new Date(document.getElementById('end-date').value);
   const diffTime2 = Math.abs(endDate - startDate);
   const diffDays = Math.ceil(diffTime2 / (1000 * 60 * 60 * 24));
+  console.log(diffDays)
   localStorage.setItem('storedNumber', diffDays);
 }
 
 function kıdemStep2() {
-  const secondNumber = document.getElementById('input-number').value;
+  const secondNumber = document.getElementById('input-number').value.replace(/[^\d]/g, "");
+  console.log(secondNumber)
   localStorage.setItem('kıdemSecond', secondNumber);
 }
 
 function kıdemStep3() {
   const secondNumber = localStorage.getItem('kıdemSecond') || 0;
   const dateResult = localStorage.getItem('storedNumber');
-  const thirdNumber = document.getElementById('input-number-2').value;
+  const thirdNumber = document.getElementById('input-number-2').value.replace(/[^\d]/g, "");
   const thirdNumberVal = thirdNumber ? Number(thirdNumber) : 0;
   const result = ((parseInt(secondNumber) + parseInt(thirdNumberVal)) / 30) * parseInt(dateResult); 
-  return result;
+  document.getElementById("sonuc").innerHTML = result;
 }
 
 
