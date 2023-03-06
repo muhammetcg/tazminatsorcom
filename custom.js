@@ -298,24 +298,22 @@ let inputChanged = false;
 let radioChanged = false;
 
 // Aşama 1
-let firstStepInput;
-let firstVariable;
+
 function saveStep1() {
-  firstStepInput = parseInt(
-    document.getElementById("firstStepInput").value.replace(/[^\d]/g, "")
-  );
+  let firstStepInput;
+  let firstVariable;
+  firstStepInput = parseInt(document.getElementById("firstStepInput").value.replace(/[^\d]/g, ""));
   localStorage.setItem("firstStepInput", firstStepInput);
   firstVariable = parseFloat(firstStepInput * 0.19);
   localStorage.setItem("firstVariable", firstVariable);
 }
 
 // Aşama 2
-let secondStepInput;
-let secondVariable;
+
 function saveStep2() {
-  secondStepInput = parseInt(
-    document.getElementById("secondStepInput").value.replace(/[^\d]/g, "")
-  );
+  let secondStepInput;
+  let secondVariable;
+  secondStepInput = parseInt(document.getElementById("secondStepInput").value.replace(/[^\d]/g, ""));
   if (secondStepInput >= 0 && secondStepInput <= 15000) {
     secondVariable = 0.9;
   } else if (secondStepInput >= 15000 && secondStepInput <= 29999) {
@@ -340,41 +338,47 @@ function saveStep3() {
   const A2 = 0.75;
   const A3 = 0.5;
   const A4 = 0.25;
-  localStorage.getItem("firstStepInput");
-  let thirdStepInput = parseInt(
+  const firstStepInput = localStorage.getItem("firstStepInput");
+  const thirdStepInput = parseInt(
     document.getElementById("thirdStepInput").value.replace(/[^\d]/g, "")
   );
-  let percentage = (thirdStepInput / firstStepInput) * 100;
+  const percentage = (thirdStepInput / firstStepInput) * 100;
+  let thirdVariable = null;
+  
   if (firstStepInput >= 0 && firstStepInput <= 95000) {
-    if (percentage >= 25.01) return A1;
-    if (percentage >= 15.01 && percentage <= 25) return A2;
-    if (percentage >= 5.01 && percentage <= 15) return A3;
-    if (percentage >= 0.1 && percentage <= 5) return A4;
+    if (percentage >= 25.01) thirdVariable = A1;
+    if (percentage >= 15.01 && percentage <= 25) thirdVariable = A2;
+    if (percentage >= 5.01 && percentage <= 15) thirdVariable = A3;
+    if (percentage >= 0.1 && percentage <= 5) thirdVariable = A4;
   }
+  
   if (firstStepInput >= 95001 && firstStepInput <= 150000) {
-    if (percentage >= 20.01) return A1;
-    if (percentage >= 12.01 && percentage <= 20) return A2;
-    if (percentage >= 4.01 && percentage <= 12) return A3;
-    if (percentage >= 0.1 && percentage <= 4) return A4;
+    if (percentage >= 20.01) thirdVariable = A1;
+    if (percentage >= 12.01 && percentage <= 20) thirdVariable = A2;
+    if (percentage >= 4.01 && percentage <= 12) thirdVariable = A3;
+    if (percentage >= 0.1 && percentage <= 4) thirdVariable = A4;
   }
+  
   if (firstStepInput >= 150001 && firstStepInput <= 300000) {
-    if (percentage >= 20.01) return A1;
-    if (percentage >= 10.01 && percentage <= 20) return A2;
-    if (percentage >= 3.01 && percentage <= 10) return A3;
-    if (percentage >= 0.1 && percentage <= 3) return A4;
+    if (percentage >= 20.01) thirdVariable = A1;
+    if (percentage >= 10.01 && percentage <= 20) thirdVariable = A2;
+    if (percentage >= 3.01 && percentage <= 10) thirdVariable = A3;
+    if (percentage >= 0.1 && percentage <= 3) thirdVariable = A4;
   }
+  
   if (firstStepInput >= 300001) {
-    if (percentage >= 20.01) return A1;
-    if (percentage >= 8.01 && percentage <= 20) return A2;
-    if (percentage >= 2.01 && percentage <= 8) return A3;
-    if (percentage >= 0.1 && percentage <= 2) return A4;
+    if (percentage >= 20.01) thirdVariable = A1;
+    if (percentage >= 8.01 && percentage <= 20) thirdVariable = A2;
+    if (percentage >= 2.01 && percentage <= 8) thirdVariable = A3;
+    if (percentage >= 0.1 && percentage <= 2) thirdVariable = A4;
   }
-}
-let thirdVariable;
-document.getElementById("saveStep3").addEventListener("click", function () {
-  thirdVariable = saveStep3();
+  
   localStorage.setItem("thirdVariable", thirdVariable);
-});
+}
+
+
+
+
 
 // AŞAMA 5:
 function saveStep5() {
@@ -409,10 +413,10 @@ function saveStep5() {
 function saveStep6() {
   const varBtn = document.querySelector("input[value='Var']");
   const yokBtn = document.querySelector("input[value='Yok']");
-  localStorage.getItem("firstVariable");
-  localStorage.getItem("secondVariable");
-  localStorage.getItem("thirdVariable");
-  console.log(firstVariable * secondVariable);
+  let firstVariable = localStorage.getItem("firstVariable");
+  let secondVariable = localStorage.getItem("secondVariable");
+  let thirdVariable = localStorage.getItem("thirdVariable");
+  console.log(thirdVariable);
   let sonuc = 1;
 
   if (varBtn.checked) {
@@ -855,7 +859,7 @@ function mirasStep7() {
 function mirasStep8() {
   let mirasStepEighthRadio = document.querySelector(".mirasStepEighth:checked").value;
   localStorage.setItem('mirasStepEighthRadio', mirasStepEighthRadio);
-  console.log("Sekizinci input veri:" +mirasStepEighthRadio)
+  console.log("Sekizinci input veri:" +mirasStepEighthRadio);
   mirasStep9();
 }
 
@@ -864,13 +868,20 @@ function mirasStep9() {
   // let mirasStepNinthRadio = document.querySelector(".mirasStepNinth:checked").value;
   const varButtonNinth = document.getElementById("success-17-outlined");
   const yokButtonNinth = document.getElementById("success-18-outlined");
-
+  // if (mirasStepNinthRadio === "Yok") {
+  //   alert("Üzgünüz, fazla çalışma tazminatı hesaplama konusunda size yardımcı olamıyoruz.");
+  //   localStorage.clear();
+  //   window.location.reload();
+  //   return;
+  // }
   // if (mirasStepNinthRadio === 'Yok') {
   //   alert("Üzgünüz, miras paylaşımı hesaplamasında size yardımcı olamıyoruz.");
   // }
   let flag = false; // flag değişkeni oluşturuldu
 
   varButtonNinth.addEventListener("click", () => {
+    const nineStep = "Evet"; // Var butonunun değeri
+    localStorage.setItem("mirasStepNinthRadio", nineStep);
     if (!flag) { // flag değişkeni kontrol edildi
       flag = true;
       varButtonNinth.style.display = "none";
@@ -890,12 +901,16 @@ function mirasStep9() {
   });
 
   yokButtonNinth.addEventListener("click", () => {
+    const ninthStep = "Hayır"; // Yok butonunun değeri
+    localStorage.setItem("mirasStepSixthRadio", ninthStep);
     const input3 = document.querySelector(".input3");
     if (input3) {
       input3.parentNode.removeChild(input3); // input kaldırıldı
       flag = false; // flag değişkeni sıfırlandı
     }
     alert("Üzgünüz, miras paylaşımı hesaplamasında size yardımcı olamıyoruz.");
+    localStorage.clear();
+    window.location.reload();
   });
   var firstStep =   localStorage.getItem('mirasStepOneRadio');
   var secondStep =   localStorage.getItem('mirasStepSecondRadio');
