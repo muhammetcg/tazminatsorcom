@@ -138,8 +138,9 @@ var inputsAll = document.querySelectorAll(".form-control");
 for (var i = 0; i < inputsAll.length; i++) {
   var currentValue;
 
-  if (input.type !== "date") {
+
     inputsAll[i].addEventListener("input", function (event) {
+      if (event.target.type !== "date") {
       var inputBasamak = event.target;
       var cursorPosition = getCaretPosition(inputBasamak);
       var valueBefore = inputBasamak.value;
@@ -186,8 +187,9 @@ for (var i = 0; i < inputsAll.length; i++) {
       setCaretPosition(inputBasamak, cursorPosition);
   
       currentValue = inputBasamak.value;
-    });
-  }
+    };
+  })
+
 }
 
 // Yıl inputunu hariç tutma ve 4 hane sanırı
