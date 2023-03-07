@@ -138,59 +138,60 @@ var inputsAll = document.querySelectorAll(".form-control");
 for (var i = 0; i < inputsAll.length; i++) {
   var currentValue;
 
-  inputsAll[i].addEventListener("input", function (event) {
-    var inputBasamak = event.target;
-    var cursorPosition = getCaretPosition(inputBasamak);
-    var valueBefore = inputBasamak.value;
-    var lengthBefore = inputBasamak.value.length;
-    var specialCharsBefore = getSpecialCharsOnSides(inputBasamak.value);
-    var number = removeThousandSeparators(inputBasamak.value);
-
-    if (inputBasamak.value == "") {
-      return;
-    }
-
-    // Invalid karakter kontrolü
-    if (isNaN(number)) {
-      inputBasamak.value = "";
-      return;
-    }
-
-    inputBasamak.value = formatNumber(number.replace(getCommaSeparator(), "."));
-
-    // Virgül siliniyorsa, doğru şekilde sil.
-    if (
-      currentValue == inputBasamak.value &&
-      currentValue ==
-        valueBefore.substr(0, cursorPosition) +
-          getThousandSeparator() +
-          valueBefore.substr(cursorPosition)
-    ) {
-      inputBasamak.value = formatNumber(
-        removeThousandSeparators(
-          valueBefore.substr(0, cursorPosition - 1) +
+  if (input.type !== "date") {
+    inputsAll[i].addEventListener("input", function (event) {
+      var inputBasamak = event.target;
+      var cursorPosition = getCaretPosition(inputBasamak);
+      var valueBefore = inputBasamak.value;
+      var lengthBefore = inputBasamak.value.length;
+      var specialCharsBefore = getSpecialCharsOnSides(inputBasamak.value);
+      var number = removeThousandSeparators(inputBasamak.value);
+  
+      if (inputBasamak.value == "") {
+        return;
+      }
+  
+      // Invalid karakter kontrolü
+      if (isNaN(number)) {
+        inputBasamak.value = "";
+        return;
+      }
+  
+      inputBasamak.value = formatNumber(number.replace(getCommaSeparator(), "."));
+  
+      // Virgül siliniyorsa, doğru şekilde sil.
+      if (
+        currentValue == inputBasamak.value &&
+        currentValue ==
+          valueBefore.substr(0, cursorPosition) +
+            getThousandSeparator() +
             valueBefore.substr(cursorPosition)
-        )
-      );
-      cursorPosition--;
-    }
-
-    // Binlik ayırıcı eklendiyse veya kaldırıldıysa imleci doğru şekilde hareket ettir.
-    var specialCharsAfter = getSpecialCharsOnSides(inputBasamak.value);
-    if (specialCharsBefore[0] < specialCharsAfter[0]) {
-      cursorPosition += specialCharsAfter[0] - specialCharsBefore[0];
-    } else if (specialCharsBefore[0] > specialCharsAfter[0]) {
-      cursorPosition -= specialCharsBefore[0] - specialCharsAfter[0];
-    }
-    setCaretPosition(inputBasamak, cursorPosition);
-
-    currentValue = inputBasamak.value;
-  });
+      ) {
+        inputBasamak.value = formatNumber(
+          removeThousandSeparators(
+            valueBefore.substr(0, cursorPosition - 1) +
+              valueBefore.substr(cursorPosition)
+          )
+        );
+        cursorPosition--;
+      }
+  
+      // Binlik ayırıcı eklendiyse veya kaldırıldıysa imleci doğru şekilde hareket ettir.
+      var specialCharsAfter = getSpecialCharsOnSides(inputBasamak.value);
+      if (specialCharsBefore[0] < specialCharsAfter[0]) {
+        cursorPosition += specialCharsAfter[0] - specialCharsBefore[0];
+      } else if (specialCharsBefore[0] > specialCharsAfter[0]) {
+        cursorPosition -= specialCharsBefore[0] - specialCharsAfter[0];
+      }
+      setCaretPosition(inputBasamak, cursorPosition);
+  
+      currentValue = inputBasamak.value;
+    });
+  }
 }
 
 // Yıl inputunu hariç tutma ve 4 hane sanırı
 var yearInput = document.getElementById("year-input");
-
 yearInput.addEventListener("input", function (event) {
   var number = removeThousandSeparators(event.target.value);
   if (isNaN(number) || number.length > 4) {
@@ -199,7 +200,6 @@ yearInput.addEventListener("input", function (event) {
   }
   event.target.value = number;
 });
-
 
 // Hane sınırı validasyonu 
 //  var number = removeThousandSeparators(event.target.value);
@@ -920,7 +920,7 @@ function mirasStep9() {
   var fourthStep =   localStorage.getItem('mirasStepFourthRadio');
   var fifthStep =   localStorage.getItem('mirasStepFifthRadio');
   var sixthStepValue = localStorage.getItem('input2Value');
-  var sixthStep = localStorage.getItem('mirasStepSixthRadio')
+  var sixthStep = localStorage.getItem('mirasStepSixthRadio');
   // var seventhStep =   localStorage.getItem('mirasStepSeventhRadio');
   // var eighthStep =   localStorage.getItem('mirasStepEighthRadio');
 
