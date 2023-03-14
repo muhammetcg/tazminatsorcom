@@ -30,12 +30,12 @@ const tabContents = document.querySelectorAll(".tab-content .tab-pane");
 const progressBar = document.querySelector(".progress-bar");
 const nextButtons = document.querySelectorAll(".next");
 const prevButtons = document.querySelectorAll(".prev");
-const stepCounter = document.querySelector(".step-counter");
+//const stepCounter = document.querySelector(".step-counter");
 let currentTab = 0;
 
 // Progress bar, wizard content, counter ıvır zıvır tanımları
 tabContents[currentTab].style.display = "block";
-stepCounter.textContent = `Adım ${currentTab + 1} / ${tabContents.length}`;
+// stepCounter.textContent = `Adım ${currentTab + 1} / ${tabContents.length}`;
 progressBar.style.width = (100 / tabContents.length) * (currentTab + 1) + "%";
 
 // İleri butonu click yönetimi
@@ -45,9 +45,7 @@ for (let i = 0; i < nextButtons.length; i++) {
       tabContents[currentTab].style.display = "none";
       currentTab++;
       tabContents[currentTab].style.display = "block";
-      stepCounter.textContent = `Adım ${currentTab + 1} / ${
-        tabContents.length
-      }`;
+      //stepCounter.textContent = `Adım ${currentTab + 1} / ${tabContents.length}`;
       progressBar.style.width =
         (100 / tabContents.length) * (currentTab + 1) + "%";
     }
@@ -62,9 +60,7 @@ for (let i = 0; i < prevButtons.length; i++) {
       tabContents[currentTab].style.display = "none";
       currentTab--;
       tabContents[currentTab].style.display = "block";
-      stepCounter.textContent = `Adım ${currentTab + 1} / ${
-        tabContents.length
-      }`;
+      // stepCounter.textContent = `Adım ${currentTab + 1} / ${tabContents.length}`;
       progressBar.style.width =
         (100 / tabContents.length) * (currentTab + 1) + "%";
     }
@@ -135,7 +131,8 @@ function setButtonPermissions(inputs) {
 var inputBasamak = document.querySelector(".form-control");
 var inputsAll = document.querySelectorAll(".form-control");
 
-for (var i = 0; i < inputsAll.length; i++) {
+for (var i = 0; i < inputsAll.length; i++) 
+{
   var currentValue;
 
 
@@ -191,7 +188,6 @@ for (var i = 0; i < inputsAll.length; i++) {
   })
 
 }
-
 // Yıl inputunu hariç tutma ve 4 hane sanırı
 var yearInput = document.getElementById("year-input");
 yearInput.addEventListener("input", function (event) {
@@ -346,35 +342,35 @@ function saveStep3() {
   );
   const percentage = (thirdStepInput / firstStepInput) * 100;
   let thirdVariable = null;
-  
+
   if (firstStepInput >= 0 && firstStepInput <= 95000) {
     if (percentage >= 25.01) thirdVariable = A1;
     if (percentage >= 15.01 && percentage <= 25) thirdVariable = A2;
     if (percentage >= 5.01 && percentage <= 15) thirdVariable = A3;
     if (percentage >= 0.1 && percentage <= 5) thirdVariable = A4;
   }
-  
+
   if (firstStepInput >= 95001 && firstStepInput <= 150000) {
     if (percentage >= 20.01) thirdVariable = A1;
     if (percentage >= 12.01 && percentage <= 20) thirdVariable = A2;
     if (percentage >= 4.01 && percentage <= 12) thirdVariable = A3;
     if (percentage >= 0.1 && percentage <= 4) thirdVariable = A4;
   }
-  
+
   if (firstStepInput >= 150001 && firstStepInput <= 300000) {
     if (percentage >= 20.01) thirdVariable = A1;
     if (percentage >= 10.01 && percentage <= 20) thirdVariable = A2;
     if (percentage >= 3.01 && percentage <= 10) thirdVariable = A3;
     if (percentage >= 0.1 && percentage <= 3) thirdVariable = A4;
   }
-  
+
   if (firstStepInput >= 300001) {
     if (percentage >= 20.01) thirdVariable = A1;
     if (percentage >= 8.01 && percentage <= 20) thirdVariable = A2;
     if (percentage >= 2.01 && percentage <= 8) thirdVariable = A3;
     if (percentage >= 0.1 && percentage <= 2) thirdVariable = A4;
   }
-  
+
   localStorage.setItem("thirdVariable", thirdVariable);
 }
 
@@ -564,7 +560,7 @@ function kıdemStep3() {
   const dateResult = localStorage.getItem('storedNumber');
   const thirdNumber = document.getElementById('input-number-2').value.replace(/[^\d]/g, "");
   const thirdNumberVal = thirdNumber ? Number(thirdNumber) : 0;
-  const result = ((parseInt(secondNumber) + parseInt(thirdNumberVal)) / 30) * parseInt(dateResult); 
+  const result = ((parseInt(secondNumber) + parseInt(thirdNumberVal)) / 30) * parseInt(dateResult);
   document.getElementById("sonuc").innerHTML = result;
 }
 
@@ -613,11 +609,11 @@ function handleKusurOraniRadioButtons() {
 
 // Adım5
 function handlePriceStep() {
-const kusurOrani = localStorage.getItem("radioButtons");
-const maasInput = document.getElementById("maasInput"); // Input elementine erişim
-const maasMiktari = maasInput.value.replace(/[^\d]/g, ""); // Kullanıcının girdiği maaş miktarını alma
-localStorage.setItem('maasMiktari', maasMiktari);
-console.log(maasMiktari)
+  const kusurOrani = localStorage.getItem("radioButtons");
+  const maasInput = document.getElementById("maasInput"); // Input elementine erişim
+  const maasMiktari = maasInput.value.replace(/[^\d]/g, ""); // Kullanıcının girdiği maaş miktarını alma
+  localStorage.setItem('maasMiktari', maasMiktari);
+  console.log(maasMiktari)
   const result = ((maasMiktari * kusurOrani) / 100);
   const z = (maasMiktari - result) / 30;
   localStorage.setItem('z', z);
@@ -640,19 +636,19 @@ function handleFinalStep() {
   let z = localStorage.getItem('z');
   let genderInfo = localStorage.getItem('genderButtons');
   if (localStorage.getItem("kazaStatusRadio") === "Ölümlü") {
-      let olumYasi = (kazaTarihi - bornYear); 
-      const retirementAge = (genderInfo === "Erkek") ? 60 : 58;
-      const x = (retirementAge - olumYasi) * 365.25;
-      const mainResult = z * x;
-      document.getElementById("sonuc").innerHTML = mainResult;
+    let olumYasi = (kazaTarihi - bornYear);
+    const retirementAge = (genderInfo === "Erkek") ? 60 : 58;
+    const x = (retirementAge - olumYasi) * 365.25;
+    const mainResult = z * x;
+    document.getElementById("sonuc").innerHTML = mainResult;
 
   } else {
     const nowDate = new Date().getFullYear();
-      let yas = (nowDate - bornYear);
-      const retirementAge = (genderInfo === "Erkek") ? 60 : 58;
-      const x2 = (retirementAge - yas) * 365.25;
-      const mainResult = z * x2;
-      document.getElementById("sonuc").innerHTML = mainResult;
+    let yas = (nowDate - bornYear);
+    const retirementAge = (genderInfo === "Erkek") ? 60 : 58;
+    const x2 = (retirementAge - yas) * 365.25;
+    const mainResult = z * x2;
+    document.getElementById("sonuc").innerHTML = mainResult;
   }
 
 }
@@ -667,16 +663,16 @@ function mirasStep1() {
   console.log("Birinci input veri:" + mirasStepOneRadio);
 
   if (mirasStepOneRadio === 'Var') {
-      currentTab = tabContents.length - 1;
-      tabContents.forEach((content, index) => {
-        if (index !== currentTab) {
-          content.style.display = "none";
-        } else {
-          content.style.display = "block";
-        }
-      });
-      stepCounter.textContent = `Adım ${currentTab + 1} / ${tabContents.length}`;
-      progressBar.style.width = "100%";
+    currentTab = tabContents.length - 1;
+    tabContents.forEach((content, index) => {
+      if (index !== currentTab) {
+        content.style.display = "none";
+      } else {
+        content.style.display = "block";
+      }
+    });
+    //stepCounter.textContent = `Adım ${currentTab + 1} / ${tabContents.length}`;
+    progressBar.style.width = "100%";
   }
 
 }
@@ -693,7 +689,7 @@ function mirasStep2() {
 
   }
 
-  console.log("İkinci değişkene ilk değer ataması2:" +   mirasStepSecondValue);
+  console.log("İkinci değişkene ilk değer ataması2:" + mirasStepSecondValue);
   mirasStep3();
 }
 // Adım 3
@@ -710,7 +706,7 @@ function mirasStep3() {
       varButton.style.display = "none";
       yokButton.style.display = "none";
       const input = document.createElement("input");
-      input.classList.add("input1", "form-control", "input-lg");
+      input.classList.add("input1", "form-control", "input-lg", "wizard-input");
       input.type = "number";
       input.placeholder = "Sayı giriniz";
       const stepContainer = document.querySelector(".stepContainer");
@@ -727,13 +723,13 @@ function mirasStep3() {
     const thirdStep = "Yok";
     localStorage.setItem("mirasStepThirdRadio", thirdStep);
     console.log("3. adım radio button veri:" + thirdStep);
-  
+
     const input = document.querySelector(".input1");
     if (input) {
       input.parentNode.removeChild(input);
       flag = false;
     }
-  
+
     let mirasStepSecondValue = localStorage.getItem('mirasStepSecondValue');
     console.log("eski mirasStepSecondValue değeri:" + mirasStepSecondValue)
     const mirasStepSecondRadio = localStorage.getItem('mirasStepSecondRadio');
@@ -748,7 +744,7 @@ function mirasStep3() {
     console.log("mirasStepSecondRadio değeri:" + mirasStepSecondRadio);
     console.log("mirasStepSecondValueNew değeri:" + mirasStepSecondValue);
   });
-  
+
 }
 
 
@@ -822,7 +818,7 @@ function mirasStep6() {
       varButtonSixth.style.display = "none";
       yokButtonSixth.style.display = "none";
       const input2 = document.createElement("input");
-      input2.classList.add("input2", "form-control", "input-lg");
+      input2.classList.add("input2", "form-control", "input-lg", "wizard-input");
       input2.type = "number";
       input2.placeholder = "Sayı giriniz";
       const stepContainer2 = document.querySelector(".stepContainer2");
@@ -861,7 +857,7 @@ function mirasStep7() {
 function mirasStep8() {
   let mirasStepEighthRadio = document.querySelector(".mirasStepEighth:checked").value;
   localStorage.setItem('mirasStepEighthRadio', mirasStepEighthRadio);
-  console.log("Sekizinci input veri:" +mirasStepEighthRadio);
+  console.log("Sekizinci input veri:" + mirasStepEighthRadio);
   mirasStep9();
 }
 
@@ -889,7 +885,7 @@ function mirasStep9() {
       varButtonNinth.style.display = "none";
       yokButtonNinth.style.display = "none";
       const input3 = document.createElement("input");
-      input3.classList.add("input3", "form-control", "input-lg");
+      input3.classList.add("input3", "form-control", "input-lg", "wizard-input");
       input3.type = "number";
       input3.placeholder = "Sayı giriniz";
       const stepContainer3 = document.querySelector(".stepContainer3");
@@ -914,43 +910,43 @@ function mirasStep9() {
     localStorage.clear();
     window.location.reload();
   });
-  var firstStep =   localStorage.getItem('mirasStepOneRadio');
-  var secondStep =   localStorage.getItem('mirasStepSecondRadio');
-  var secondStepValue =   localStorage.getItem('mirasStepSecondValue');
-  var thirthStep =   localStorage.getItem('mirasStepThirdRadio');
+  var firstStep = localStorage.getItem('mirasStepOneRadio');
+  var secondStep = localStorage.getItem('mirasStepSecondRadio');
+  var secondStepValue = localStorage.getItem('mirasStepSecondValue');
+  var thirthStep = localStorage.getItem('mirasStepThirdRadio');
   var thirthStepValue = localStorage.getItem("input1Value");
-  var fourthStep =   localStorage.getItem('mirasStepFourthRadio');
-  var fifthStep =   localStorage.getItem('mirasStepFifthRadio');
+  var fourthStep = localStorage.getItem('mirasStepFourthRadio');
+  var fifthStep = localStorage.getItem('mirasStepFifthRadio');
   var sixthStepValue = localStorage.getItem('input2Value');
   var sixthStep = localStorage.getItem('mirasStepSixthRadio');
   // var seventhStep =   localStorage.getItem('mirasStepSeventhRadio');
   // var eighthStep =   localStorage.getItem('mirasStepEighthRadio');
 
   if (secondStep === 'Evet' && thirthStep === 'Var' && firstStep === 'Yok') {
-      let a = (100 - secondStepValue); 
-      let Result = (a / thirthStepValue);
-      let esPayi = secondStepValue;
-      console.log("Genel hesaplama ilk if sonucu:" + Result);
-      document.getElementById("sonuc").innerHTML = "&#37;" + Result;
-      document.getElementById("sonuc2").innerHTML = "&#37;" + esPayi;
+    let a = (100 - secondStepValue);
+    let Result = (a / thirthStepValue);
+    let esPayi = secondStepValue;
+    console.log("Genel hesaplama ilk if sonucu:" + Result);
+    document.getElementById("sonuc").innerHTML = "&#37;" + Result;
+    document.getElementById("sonuc2").innerHTML = "&#37;" + esPayi;
   } else if (secondStep === 'Hayır' && thirthStep === 'Var' && firstStep === 'Yok') {
-      let Result = (100 / thirthStepValue);
-      let esPayi = "Bulunmuyor";
-      console.log("Genel hesaplama ikinci if sonucu:" + Result);
-      document.getElementById("sonuc").innerHTML ="&#37;" + Result;
-      document.getElementById("sonuc2").innerHTML = "&#37;" + esPayi;
-  } else if (secondStep === 'Evet' && secondStepValue == 50 && firstStep === 'Yok' && fourthStep === 'Hayır' && fifthStep === 'Hayır' && sixthStep === 'Var')  {
-      let Result = (50 / sixthStepValue)
-      let esPayi = secondStepValue;
-      console.log("Genel hesaplama üçüncü if sonucu:" + Result);
-      document.getElementById("sonuc").innerHTML = "&#37;" + Result;
-      document.getElementById("sonuc2").innerHTML = "&#37;" + esPayi;
+    let Result = (100 / thirthStepValue);
+    let esPayi = "Bulunmuyor";
+    console.log("Genel hesaplama ikinci if sonucu:" + Result);
+    document.getElementById("sonuc").innerHTML = "&#37;" + Result;
+    document.getElementById("sonuc2").innerHTML = "&#37;" + esPayi;
+  } else if (secondStep === 'Evet' && secondStepValue == 50 && firstStep === 'Yok' && fourthStep === 'Hayır' && fifthStep === 'Hayır' && sixthStep === 'Var') {
+    let Result = (50 / sixthStepValue)
+    let esPayi = secondStepValue;
+    console.log("Genel hesaplama üçüncü if sonucu:" + Result);
+    document.getElementById("sonuc").innerHTML = "&#37;" + Result;
+    document.getElementById("sonuc2").innerHTML = "&#37;" + esPayi;
   } else if (firstStep === 'Yok' && secondStep === 'Hayır' && thirthStep === 'Yok' && fourthStep === 'Hayır' && fifthStep === 'Hayır' && sixthStep === 'Var') {
-      let Result = (100 / sixthStepValue)
-      let esPayi = "Bulunmuyor";
-      console.log("Genel hesaplama dördüncü if sonucu:" + Result);
-      document.getElementById("sonuc").innerHTML = "&#37;" + Result;
-      document.getElementById("sonuc2").innerHTML = "&#37;" + esPayi;
+    let Result = (100 / sixthStepValue)
+    let esPayi = "Bulunmuyor";
+    console.log("Genel hesaplama dördüncü if sonucu:" + Result);
+    document.getElementById("sonuc").innerHTML = "&#37;" + Result;
+    document.getElementById("sonuc2").innerHTML = "&#37;" + esPayi;
   }
 
 }

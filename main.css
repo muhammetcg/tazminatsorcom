@@ -107,6 +107,24 @@ body {
   color: #fff;
 }
 
+.nav-link:focus {
+  color: #c1e3cc !important;
+}
+
+.responsive-navbar {
+  padding: 1rem !important;
+  font-family: 'neuemedium';
+  font-size: 20px !important;
+}
+
+.responsive-navbar-social {
+  position: absolute;
+  bottom: -180%;
+}
+.contact-ways > a,
+.contact-ways > div {
+  margin-bottom: 1rem !important;
+}
 
 .breadcrumb-item {
   font-size: 1rem;
@@ -247,6 +265,14 @@ body {
   font-family: neuemedium;
   font-size: 3rem;
   line-height: 3.75rem;
+  font-weight: 400;
+  letter-spacing: normal;
+}.main-content-title-responsive {
+  display: inline-block;
+  color: #178546;
+  margin-bottom: 1.5rem;
+  padding: 1 0rem;
+  font-family: neuemedium;
   font-weight: 400;
   letter-spacing: normal;
 }
@@ -411,27 +437,47 @@ body {
 
 /* media */
 @media screen and (max-width: 992px) {
-  .process{
+  .process {
     padding: 0 !important;
   }
-  .process-card .card-body img{
-    width: 150px;
+
+  .process-card .card-body img {
+    width: 120px;
   }
-  .process-card .card-body .process-item{
+
+  .process-card .card-body .process-item {
     color: #fff;
   }
-  .main-content{
+
+  .main-content {
     padding-top: 5rem;
-  }.phone-responsive{
+  }
+
+  .phone-responsive {
     width: 100%;
+  }
+
+  .howto {
+    margin-top: 20rem;
+  }
+
+  .banner-btn button {
+    box-shadow: 0 0.0625rem 0.125rem #004e801a, 0 0.25rem 0.5rem #00000021;
+  }
+
+  .footer-social a {
+    font-size: 2rem;
+    line-height: 4.5rem;
+    margin: 0.9rem;
   }
 }
 
 @media screen and (max-width: 540px) {
-  .process{
+  .process {
     padding: 0 !important;
   }
-  .process-card .card-body img{
+
+  .process-card .card-body img {
     width: 80px;
   }
 
