@@ -118,11 +118,11 @@ body {
 }
 
 .responsive-navbar-social {
-  position: absolute;
-  bottom: -180%;
+  padding: 5rem 0;
 }
-.contact-ways > a,
-.contact-ways > div {
+
+.contact-ways>a,
+.contact-ways>div {
   margin-bottom: 1rem !important;
 }
 
@@ -176,8 +176,20 @@ body {
 }
 
 .collapse>ul .dropdown-item {
-  color: black;
+  color: #1b1c1d;
   margin-left: 0;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  font-weight: 400;
+  letter-spacing: .25px;
+  padding: 0 16px;
+  height: 48px;
+  align-items: center;
+  display: flex;
+}
+
+.collapse>ul .dropdown-item:hover {
+  background-color: rgba(23, 133, 70, .06) !important;
 }
 
 
@@ -196,7 +208,7 @@ body {
 }
 
 .home-for-bg {
-  background-image: url('assets/home-bg.png');
+  background-image: url('assets/home-bg2.png');
   padding-bottom: 8.4375rem;
   padding-top: 4.6875rem;
   height: 100%;
@@ -233,7 +245,7 @@ body {
 }
 
 .home-pg-for-buttons {
-  padding-top: 7.375rem;
+  padding-top: 3.9rem;
 }
 
 /* -------BANNER BUTTON BTİŞ-------- */
@@ -263,11 +275,12 @@ body {
   margin-bottom: 1.5rem;
   padding: 1 0rem;
   font-family: neuemedium;
-  font-size: 3rem;
   line-height: 3.75rem;
   font-weight: 400;
   letter-spacing: normal;
-}.main-content-title-responsive {
+}
+
+.main-content-title-responsive {
   display: inline-block;
   color: #178546;
   margin-bottom: 1.5rem;
@@ -280,7 +293,6 @@ body {
 .main-video-card {
   box-shadow: 0 0.25rem 0.5rem #004e8014, 0 0.75rem 1.5rem #0000001f;
   margin-bottom: 1.5rem;
-  padding: 0 1rem;
   border: transparent !important;
 }
 
@@ -294,6 +306,10 @@ body {
   color: #178546;
   border: 1px solid #178546;
   transition: 0.4s;
+}
+
+.main-about-card .card-title {
+  padding-top: 1.4rem;
 }
 
 .main-about-card {
@@ -368,6 +384,17 @@ body {
   z-index: 1;
 }
 
+.progressbar li:last-child:after {
+  content: "";
+  position: absolute;
+  width: 1px;
+  height: 85px;
+  background-color: #fff;
+  top: -150px !important;
+  right: 95%;
+  z-index: 1;
+}
+
 .progressbar li:first-child:after {
   content: none;
 }
@@ -377,8 +404,40 @@ body {
 }
 
 
+.accordion-collapse a {
+  color: #1b1c1d;
+  text-decoration: none;
+  font-size: 1rem;
+  font-family: neueregular;
+
+}
+
+.accordion-collapse p {
+  color: #1b1c1d;
+  text-decoration: none;
+  font-size: 1rem;
+  font-family: neueregular;
+
+}
+
+.accordion-collapse {
+  padding: 10px 0;
+}
+
+.accordion-button {
+  font-family: neuemedium;
+}
+
+.accordion-button:not(.collapsed) {
+  color: black !important;
+}
+
+.accordion-button:focus {
+  border: 0;
+}
+
 .footer-links {
-  padding: 5rem 0;
+  padding: 5rem 0 2rem 0;
 }
 
 .footer-container .row .col img {
@@ -388,7 +447,7 @@ body {
 
 .footer-column ul li {
   list-style: none;
-  margin: 15px;
+  margin: 0 0 15px 0;
 }
 
 .footer-column ul li a {
@@ -433,6 +492,10 @@ body {
   font-weight: 500;
 }
 
+ul {
+  padding: 1rem 0 !important;
+}
+
 
 
 /* media */
@@ -450,7 +513,7 @@ body {
   }
 
   .main-content {
-    padding-top: 5rem;
+    padding-top: 2rem;
   }
 
   .phone-responsive {
@@ -458,7 +521,7 @@ body {
   }
 
   .howto {
-    margin-top: 20rem;
+    margin-top: 12rem;
   }
 
   .banner-btn button {
@@ -474,11 +537,34 @@ body {
 
 @media screen and (max-width: 540px) {
   .process {
-    padding: 0 !important;
+    padding: 0 0 0.9rem 0 !important;
   }
 
   .process-card .card-body img {
     width: 80px;
   }
 
+}
+
+.wp-float {
+  position: fixed;
+  width: 60px;
+  height: 60px;
+  bottom: 40px;
+  right: 20px;
+  background-color: #25d366;
+  color: #FFF;
+  border-radius: 50px;
+  text-align: center;
+  font-size: 30px;
+  box-shadow: 2px 2px 3px #999;
+  z-index: 100;
+}
+
+.my-float {
+  margin-top: 16px;
+}
+
+.subject{
+  display: none;
 }
