@@ -1,0 +1,1642 @@
+<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tazminatsor | Trafik Kazası</title>
+    <link rel="stylesheet" href="main.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+      integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
+      crossorigin="anonymous"
+    />
+    <style>
+      @font-face {
+        font-family: neuemedium;
+        src: url(/assets/font/neue-haas-display-7.ttf);
+      }
+
+      @font-face {
+        font-family: neuethin;
+        src: url(/assets/font/neue-haas-display-xx.ttf);
+      }
+
+      @font-face {
+        font-family: neuethin2x;
+        src: url(/assets/font/neue-haas-display-x.ttf);
+      }
+
+      #header {
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 100%;
+      }
+
+      .container {
+        max-width: 75rem !important;
+      }
+
+      .head_container {
+        max-width: 75rem !important;
+        margin: auto !important;
+        width: 100% !important;
+      }
+
+      .top {
+        position: relative;
+        display: flex;
+        justify-content: flex-end;
+        height: 2.5rem;
+        background: #219752;
+        box-shadow: 0 0.0625rem 0.125rem #004e801a, 0 0.25rem 0.5rem #00000021;
+      }
+
+      .not-sticky-bar {
+        height: 2.5rem;
+      }
+
+      .not-sticky-bar ul li a {
+        font-weight: 400;
+        font-size: 0.95rem;
+        color: #fff;
+        font-family: neuemedium;
+        cursor: pointer;
+        text-decoration: none;
+      }
+
+      .not-sticky-bar ul li {
+        display: inline-block;
+      }
+
+      .collapse ul li a {
+        margin-left: 1.25rem;
+        margin-right: 1.25rem;
+        font-family: neuemedium;
+        color: black;
+        text-decoration: none;
+        cursor: pointer;
+        font-size: 1.2rem;
+        font-weight: 400;
+      }
+
+      .collapse ul li a:hover {
+        color: #178546 !important;
+      }
+
+      .not-sticky-bar ul li a:hover {
+        color: #c1e3cc;
+      }
+
+      .form-label {
+        font-size: 1.75rem;
+        line-height: 2.25rem;
+        font-weight: 400;
+        letter-spacing: normal;
+        font-family: neuemedium;
+      }
+
+      #navbar {
+        background-color: #fff;
+        color: black;
+        transition: background-color 0.5s ease, color 0.5s ease;
+        /* padding: 10px; */
+        z-index: 10;
+        top: 0;
+        left: 0;
+        right: 0;
+        width: 100%;
+        box-shadow: 0 0.0625rem 0.125rem #004e801a, 0 0.25rem 0.5rem #00000021;
+      }
+
+      .sticky {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        box-shadow: 0 0.0625rem 0.125rem #004e801a, 0 0.25rem 0.5rem #00000021;
+        transition-delay: 1s !important;
+        /* margin: 0 !important; */
+      }
+
+      .collapse > ul .dropdown-item {
+        color: black;
+      }
+
+      .nav-pills > li {
+        font-size: 1.75rem;
+        line-height: 2.25rem;
+        font-weight: 500;
+        letter-spacing: normal;
+        margin-top: 20px;
+        font-family: neuemedium;
+      }
+
+      .navbar-brand img {
+        width: 180px;
+      }
+
+      .next,
+      .prev,
+      .first {
+        margin-top: 2.5em;
+        box-shadow: 0 0.125rem 0.25rem #004e801a, 0 0.5rem 1rem #00000021 !important;
+        padding: 0.75rem 1.75rem !important;
+        border-radius: 0.5rem !important;
+        line-height: 1 !important;
+        transform: translate3d(0, 0, 0) !important;
+        transition: background 400ms cubic-bezier(0.25, 0.8, 0.25, 1),
+          box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1) !important;
+      }
+
+      .next {
+        background: #178546;
+        color: #fff;
+        border: transparent;
+      }
+
+      .next:hover {
+        background: #219752;
+        color: #fff;
+      }
+
+      .next:focus {
+        background: #219752 !important;
+        color: #fff !important;
+      }
+
+      .prev {
+        background: #fff;
+        color: red;
+        border: red;
+        margin-right: 1rem;
+      }
+
+      .prev:hover {
+        background: red;
+        color: #fff;
+      }
+
+      .prev:focus {
+        background: red !important;
+        color: #fff !important;
+      }
+
+      .btn:disabled {
+        background-color: gray !important;
+      }
+
+      .done {
+        display: flex;
+      }
+
+      .form-control {
+        margin-top: 1em;
+      }
+
+      .progress {
+        margin: 2rem 0;
+        height: 10px;
+      }
+
+      .progress-bar {
+        background-color: #78cce3 !important;
+      }
+
+      .form-control {
+        margin-top: 1em;
+      }
+
+      .progress {
+        margin-top: 2.5em;
+      }
+
+      .progress-bar {
+        background-color: #78cce3 !important;
+      }
+
+      .wizard-btn-check {
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 1rem;
+        display: grid;
+      }
+
+      .wizard-btn-check label {
+        border: 1px solid #219752 !important;
+        border-radius: 0.25rem !important;
+        padding: 0.6875rem 0.25rem !important;
+        background: none !important;
+        color: black !important;
+        font-family: inherit !important;
+        font-size: 100% !important;
+        font-weight: inherit !important;
+        line-height: 1.15 !important;
+        margin: 0 !important;
+      }
+
+      .wizard-btn-check label:hover,
+      .wizard-btn-check label:focus {
+        background: #e5f4ea !important;
+        cursor: pointer !important;
+      }
+
+      .wizard-btn-check input[type='radio'] {
+        position: absolute;
+        opacity: 0;
+      }
+
+      .wizard-btn-check input[type='radio']:checked + .btn-check-wizard {
+        background-color: #178546 !important;
+        color: #fff !important;
+        transition: background-color 0.5s ease, color 0.5s ease !important;
+      }
+
+      .wizard-input {
+        font: inherit !important;
+        background: transparent !important;
+        color: currentColor !important;
+        padding: 0.8rem;
+        outline: none !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        vertical-align: bottom !important;
+        text-align: inherit !important;
+        box-sizing: content-box !important;
+      }
+
+      .wizard-input:hover {
+        border-color: #178546 !important;
+      }
+
+      .wizard-input:focus {
+        box-shadow: none !important;
+        border-color: #176839 !important;
+      }
+
+      /* .breadcrumb-top {
+        background: #f1f3f4;
+        padding: 0.75rem 0;
+      }
+
+      .breadcrumb {
+        margin: 0;
+      }
+
+      .breadcrumb-item {
+        font-size: 1rem;
+        line-height: 1.5rem;
+        font-weight: 400;
+        letter-spacing: 0.25px;
+        font-family: neuemedium;
+        color: #1b1c1d !important;
+        text-decoration: none !important;
+      }
+
+      .breadcrumb-item a {
+        font-size: 1rem;
+        line-height: 1.5rem;
+        font-weight: 400;
+        letter-spacing: 0.25px;
+        font-family: neuemedium;
+        color: #1b1c1d !important;
+        text-decoration: none !important;
+      } */
+
+      .tab-content {
+        margin-bottom: 7em;
+      }
+
+      .contact-text {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .phone {
+        color: #178546 !important;
+        text-decoration: none !important;
+        display: flex;
+        align-items: center;
+      }
+
+      .formbold-mb-5 {
+        margin-bottom: 20px;
+      }
+
+      .formbold-pt-3 {
+        padding-top: 12px;
+      }
+
+      .formbold-main-wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+      }
+
+      .formbold-form-wrapper {
+        margin: 0 auto;
+        max-width: 550px;
+        width: 100%;
+        background: white;
+      }
+
+      .formbold-form-label {
+        display: block;
+        font-weight: 500;
+        font-size: 16px;
+        color: #07074d;
+        margin-bottom: 12px;
+      }
+
+      .formbold-form-label-2 {
+        font-weight: 600;
+        font-size: 20px;
+        margin-bottom: 20px;
+      }
+
+      .formbold-form-input {
+        width: 100%;
+        padding: 12px 24px;
+        border-radius: 6px;
+        border: 1px solid #e0e0e0;
+        background: white;
+        font-weight: 500;
+        font-size: 16px;
+        color: #6b7280;
+        outline: none;
+        resize: none;
+      }
+
+      .formbold-form-input:focus {
+        border-color: #6a64f1;
+        box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.05);
+      }
+
+      .formbold-btn {
+        text-align: center;
+        font-size: 16px;
+        border-radius: 6px;
+        padding: 14px 32px;
+        border: none;
+        font-weight: 600;
+        background-color: #6a64f1;
+        color: white;
+        cursor: pointer;
+      }
+
+      .formbold-btn:hover {
+        box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.05);
+      }
+
+      .formbold--mx-3 {
+        margin-left: -12px;
+        margin-right: -12px;
+      }
+
+      .formbold-px-3 {
+        padding-left: 12px;
+        padding-right: 12px;
+      }
+
+      .flex {
+        display: flex;
+      }
+
+      .flex-wrap {
+        flex-wrap: wrap;
+      }
+
+      .w-full {
+        width: 100%;
+      }
+
+      @media (min-width: 540px) {
+        .sm\:w-half {
+          width: 50%;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <header id="header" class="header-page">
+      <div class="top-navbar">
+        <div class="top--navbar">
+          <div class="top d-none d-md-block">
+            <div class="head_container container">
+              <nav
+                class="not-sticky-bar navbar navbar-expand-lg bg-body-tertiary"
+                style="
+                  display: flex;
+                  justify-content: flex-end;
+                  align-items: center;
+                "
+              >
+                <ul class="top-navbar-nav navbar-nav">
+                  <li class="nav-item">
+                    <a href="tel:(0212)7060134" class="nav-link"
+                      >(0212) 706 0 1345</a
+                    >
+                  </li>
+                  <li class="nav-item">
+                    <a href="about.html" class="nav-link">Hakkımızda</a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="contact-form.html" class="nav-link"
+                      >Size Ulaşalım</a
+                    >
+                  </li>
+                </ul>
+              </nav>
+            </div>
+          </div>
+          <div class="down down-page" id="navbar">
+            <div class="container head_container">
+              <!-- tam width için down ve head_container componentleri uçurulacak -->
+              <nav class="navbar navbar-expand-lg bg-body-tertiary">
+                <div class="container-fluid">
+                  <a class="navbar-brand" href="index.html"
+                    ><img src="/assets/img/PNG.png" alt=""
+                  /></a>
+                  <button
+                    class="navbar-toggler"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#navbarNavDropdown"
+                    aria-controls="navbarNavDropdown"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation"
+                  >
+                    <span class="navbar-toggler-icon"></span>
+                  </button>
+                  <div
+                    class="collapse navbar-collapse"
+                    id="navbarNavDropdown"
+                    style="justify-content: flex-end"
+                  >
+                    <ul class="navbar-nav">
+                      <li class="nav-item dropdown">
+                        <a
+                          class="nav-link dropdown-toggle"
+                          href="#"
+                          role="button"
+                          data-bs-toggle="dropdown"
+                          aria-expanded="false"
+                        >
+                          Tazminat Sor
+                        </a>
+                        <ul class="dropdown-menu">
+                          <li>
+                            <a class="dropdown-item" href="wizard-kidem.html"
+                              >Kıdem Tazminatı</a
+                            >
+                          </li>
+                          <li>
+                            <a class="dropdown-item" href="wizard-is.html"
+                              >İş Kazası Tazminatı</a
+                            >
+                          </li>
+                          <li>
+                            <a class="dropdown-item" href="wizard.html"
+                              >Değer Kaybı Tazminatı</a
+                            >
+                          </li>
+                          <li>
+                            <a class="dropdown-item" href="wizard-trafik.html"
+                              >Trafik Kazası Tazminatı</a
+                            >
+                          </li>
+                          <li>
+                            <a class="dropdown-item" href="wizard-miras.html"
+                              >Miras Payı Hesaplama</a
+                            >
+                          </li>
+                          <li>
+                            <a class="dropdown-item" href="wizard-mesai.html"
+                              >Fazla Çalışma Tazminatı</a
+                            >
+                          </li>
+                        </ul>
+                      </li>
+                      <!-- <li class="nav-item">
+                                          <a class="nav-link" href="#">Hizmetler</a>
+                                      </li> -->
+                      <li class="nav-item">
+                        <a class="nav-link" href="hizmetlerimiz.html"
+                          >Hizmetler</a
+                        >
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="howto.html">Nasıl Çalışır?</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="contact.html">İletişim</a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <!-- <div class="breadcrumb-top">
+      <div class="container">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="index.html">Ana Sayfa</a></li>
+            <li class="breadcrumb-item active" aria-current="page">
+              Trafik Kazası Tazminatı Hesaplama
+            </li>
+          </ol>
+        </nav>
+      </div>
+    </div> -->
+    <div class="container" id="myWizard">
+      <div class="progress">
+        <div
+          class="progress-bar bg-info"
+          role="progressbar"
+          aria-valuenow="1"
+          aria-valuemin="1"
+          aria-valuemax="6"
+          style="width: 20%"
+        ></div>
+      </div>
+      <div class="navbar">
+        <div class="navbar-inner">
+          <ul class="nav nav-pills">
+            <!-- <li>1 dakikada aracının değer kaybı tazminatını öğren!</li> -->
+          </ul>
+        </div>
+      </div>
+      <div class="tab-content needs-validation">
+        <div class="tab-pane" id="step1">
+          <div class="well">
+            <div class="row g-3">
+              <!-- <br /> -->
+              <div class="done">
+                <label
+                  class="form-label"
+                  style="display: block; margin-bottom: 1.5em"
+                  >Trafik Kazası Sonucu Yaşadığınız Mağduriyet;</label
+                >
+              </div>
+              <div class="col-md-12 wizard-btn-check">
+                <input
+                  type="radio"
+                  class="btn-check status"
+                  name="options-outlined "
+                  id="success-outlined"
+                  autocomplete="off"
+                  value="Ölümlü"
+                  required
+                />
+                <label
+                  class="btn btn-check-wizard btn-outline-success"
+                  for="success-outlined"
+                  >Ölümlü</label
+                >
+
+                <input
+                  type="radio"
+                  class="btn-check status"
+                  name="options-outlined "
+                  id="success-2-outlined"
+                  autocomplete="off"
+                  value="Yaralanmalı"
+                  required
+                />
+                <label
+                  class="btn btn-check-wizard btn-outline-success"
+                  for="success-2-outlined"
+                  >Yaralanmalı</label
+                >
+              </div>
+            </div>
+          </div>
+          <button
+            type="button"
+            class="btn btn-info next"
+            onclick="handleStatusButton()"
+          >
+            İleri
+          </button>
+        </div>
+        <div class="tab-pane" id="step2">
+          <div class="well">
+            <div class="row g-3">
+              <div class="col-md-6">
+                <!-- <br /> -->
+                <div class="done">
+                  <label
+                    class="form-label"
+                    style="display: block; margin-bottom: 1.5em"
+                    >Cinsiyet:</label
+                  >
+                </div>
+
+                <div class="col-md-12 wizard-btn-check">
+                  <input
+                    type="radio"
+                    class="btn-check gender"
+                    name="options-outlined"
+                    value="Erkek"
+                    id="success-12-outlined"
+                    autocomplete="off"
+                    required
+                  />
+                  <label
+                    class="btn btn-check-wizard btn-outline-success"
+                    for="success-12-outlined"
+                    >Erkek</label
+                  >
+
+                  <input
+                    type="radio"
+                    class="btn-check gender"
+                    name="options-outlined"
+                    value="Kadın"
+                    id="success-13-outlined"
+                    autocomplete="off"
+                    required
+                  />
+                  <label
+                    class="btn btn-check-wizard btn-outline-success"
+                    for="success-13-outlined"
+                    >Kadın</label
+                  >
+                </div>
+              </div>
+            </div>
+            <button type="button" class="btn btn-info prev backButton">
+              Geri
+            </button>
+            <button
+              type="button"
+              class="btn btn-info next"
+              onclick="handleGenderButton()"
+            >
+              İleri
+            </button>
+          </div>
+        </div>
+        <div class="tab-pane" id="step3">
+          <div class="well">
+            <div class="row g-3">
+              <!-- <br /> -->
+              <div class="done">
+                <label
+                  class="form-label"
+                  for="form-label year-input"
+                  style="display: block; margin-bottom: 1.5em"
+                  id="caption-change"
+                  >Yaşınız:</label
+                >
+              </div>
+              <div class="col-md-12 wizard-btn-check" id="error-message">
+                <input
+                  type="text"
+                  class="form-control wizard-input input-lg"
+                  id="year-input"
+                  name="year"
+                  required
+                />
+              </div>
+            </div>
+
+            <button type="button" class="btn btn-info prev backButton">
+              Geri
+            </button>
+            <button
+              type="button"
+              class="btn btn-info next"
+              onclick="handleBornButton()"
+            >
+              İleri
+            </button>
+          </div>
+        </div>
+        <div class="tab-pane" id="step4">
+          <div class="well">
+            <div class="row g-3">
+              <div class="col-md-6">
+                <!-- <br /> -->
+                <div class="done">
+                  <label
+                    class="form-label"
+                    style="display: block; margin-bottom: 1.5em"
+                    >Son Aldığınız Net Maaşınız:</label
+                  >
+                </div>
+                <input
+                  class="form-control"
+                  type="text"
+                  value=""
+                  placeholder="Net Maaşınızı Giriniz."
+                  id="maasInput"
+                />
+              </div>
+            </div>
+            <button type="button" class="btn btn-info prev backButton">
+              Geri
+            </button>
+            <button
+              type="button"
+              class="btn btn-info next"
+              onclick="handlePriceStep()"
+            >
+              İleri
+            </button>
+          </div>
+        </div>
+        <div class="tab-pane" id="step5">
+          <div class="well">
+            <div class="row g-3">
+              <!-- <br /> -->
+              <div class="done">
+                <label
+                  class="form-label"
+                  style="display: block; margin-bottom: 1.5em"
+                  >Kusur Oranınız?:</label
+                >
+              </div>
+              <div class="col-md-12 wizard-btn-check" style="margin-top: 1em">
+                <input
+                  type="radio"
+                  class="btn-check kusurOrani"
+                  name="options-outlined"
+                  id="success-6-outlined"
+                  autocomplete="off"
+                  value="0"
+                  required
+                />
+                <label
+                  class="btn btn-check-wizard btn-outline-success"
+                  for="success-6-outlined"
+                  >%0</label
+                >
+
+                <input
+                  type="radio"
+                  class="btn-check kusurOrani"
+                  name="options-outlined"
+                  id="success-7-outlined"
+                  autocomplete="off"
+                  value="25"
+                  required
+                />
+                <label
+                  class="btn btn-check-wizard btn-outline-success"
+                  for="success-7-outlined"
+                  >%25</label
+                >
+
+                <input
+                  type="radio"
+                  class="btn-check kusurOrani"
+                  name="options-outlined"
+                  id="success-8-outlined"
+                  autocomplete="off"
+                  value="50"
+                  required
+                />
+                <label
+                  class="btn btn-check-wizard btn-outline-success"
+                  for="success-8-outlined"
+                  >%50</label
+                >
+
+                <input
+                  type="radio"
+                  class="btn-check kusurOrani"
+                  name="options-outlined"
+                  id="success-9-outlined"
+                  autocomplete="off"
+                  value="75"
+                  required
+                />
+                <label
+                  class="btn btn-check-wizard btn-outline-success"
+                  for="success-9-outlined"
+                  >%75</label
+                >
+
+                <input
+                  type="radio"
+                  class="btn-check kusurOrani"
+                  name="options-outlined"
+                  id="success-10-outlined"
+                  autocomplete="off"
+                  value="100"
+                  required
+                />
+                <label
+                  class="btn btn-check-wizard btn-outline-success"
+                  for="success-10-outlined"
+                  >%100</label
+                >
+
+                <input
+                  type="radio"
+                  class="btn-check kusurOrani"
+                  name="options-outlined"
+                  id="success-11-outlined"
+                  autocomplete="off"
+                  value="0"
+                  required
+                />
+                <label
+                  class="btn btn-check-wizard btn-outline-success"
+                  for="success-11-outlined"
+                  >Bilmiyorum</label
+                >
+              </div>
+            </div>
+            <button type="button" class="btn btn-info prev backButton">
+              Geri
+            </button>
+            <button
+              type="button"
+              class="btn btn-info next"
+              onclick="handleKusurOraniRadioButtons()"
+            >
+              İleri
+            </button>
+          </div>
+        </div>
+        <div class="tab-pane" id="disability6">
+          <div class="well">
+            <div class="row g-3">
+              <div class="col-md-6">
+                <div class="done">
+                  <label
+                    class="form-label"
+                    style="display: block; margin-bottom: 1.5em"
+                    >Sakatlık oranınız:</label
+                  >
+                </div>
+
+                <div class="col-md-12 wizard-btn-check" style="margin-top: 1em">
+                  <input
+                    class="form-control wizard-input input-lg disability"
+                    type="number"
+                    value=""
+                    min="1"
+                    max="100"
+                    placeholder="Sakatlık Oranı"
+                  />
+                </div>
+              </div>
+            </div>
+            <button type="button" class="btn btn-info prev backButton">
+              Geri
+            </button>
+            <button
+              type="button"
+              class="btn btn-info next"
+              onclick="handleDisabilityButton()"
+            >
+              İleri
+            </button>
+          </div>
+        </div>
+        <div class="tab-pane" id="step6">
+          <div class="well">
+            <div class="row g-3">
+              <div class="col-md-6">
+                <!-- <br /> -->
+                <div class="done">
+                  <label class="form-label" style="display: block"
+                    >Maddi kaybınız:</label
+                  >
+                </div>
+                <span style="font-style: italic"
+                  >Eğer Maddi Kaybınız bulunmuyorsa, bu adıma 0 (sıfır) yazarak
+                  ilerleyebilirsiniz.</span
+                >
+                <input
+                  class="form-control wizard-input input-lg"
+                  type="text"
+                  value=""
+                  placeholder="Maddi kaybınızı giriniz."
+                  id="maddiKayip"
+                />
+              </div>
+            </div>
+            <button type="button" class="btn btn-info prev backButton">
+              Geri
+            </button>
+            <button
+              type="button"
+              class="btn btn-info next"
+              onclick="handleLossSelect()"
+            >
+              İleri
+            </button>
+          </div>
+        </div>
+        <div class="tab-pane" id="wizard-step-99">
+          <div class="well">
+            <div class="row g-3">
+              <div class="col-md-12 form-required">
+                <div class="formbold-main-wrapper">
+                  <!-- Author: FormBold Team -->
+                  <!-- Learn More: https://formbold.com -->
+                  <div class="formbold-form-wrapper">
+                    <div class="col-md-12 justify-content-center d-flex">
+                      <h5 class="main-forum-title" style="text-align: center">
+                        Çok az kaldı, hesaplamanı görebilmen için son bir adım!
+                      </h5>
+                    </div>
+                    <form
+                      action="https://formspree.io/f/meqwkbvn"
+                      method="POST"
+                    >
+                      <div class="formbold-mb-5 reInputFrst">
+                        <label for="name" class="formbold-form-label"> </label>
+                        <input
+                          type="text"
+                          name="name"
+                          id="name"
+                          placeholder="Ad Soyad"
+                          class="formbold-form-input"
+                        />
+                      </div>
+
+                      <div class="formbold-mb-5 reInputSec">
+                        <label for="phone" class="formbold-form-label"> </label>
+                        <input
+                          type="text"
+                          name="phone"
+                          id="phone"
+                          placeholder="Telefon Numaranız"
+                          class="formbold-form-input"
+                        />
+                      </div>
+
+                      <div class="formbold-mb-5 subject">
+                        <label for="subject" class="formbold-form-label">
+                          Hesaplama Sonucunuz
+                        </label>
+                        <input
+                          type="text"
+                          name="subject"
+                          id="subject"
+                          placeholder="Hesaplama Sonucu"
+                          class="formbold-form-input"
+                        />
+                      </div>
+
+                      <select
+                        class="form-select formbold-form-input formbold-mb-5"
+                        aria-label="Default select example"
+                      >
+                        <option value="0" disabled="" selected="">
+                          Yaşadığınız Şehir
+                        </option>
+                        <option value="1">Adana</option>
+                        <option value="2">Adıyaman</option>
+                        <option value="3">Afyonkarahisar</option>
+                        <option value="4">Ağrı</option>
+                        <option value="5">Amasya</option>
+                        <option value="6">Ankara</option>
+                        <option value="7">Antalya</option>
+                        <option value="8">Artvin</option>
+                        <option value="9">Aydın</option>
+                        <option value="10">Balıkesir</option>
+                        <option value="11">Bilecik</option>
+                        <option value="12">Bingöl</option>
+                        <option value="13">Bitlis</option>
+                        <option value="14">Bolu</option>
+                        <option value="15">Burdur</option>
+                        <option value="16">Bursa</option>
+                        <option value="17">Çanakkale</option>
+                        <option value="18">Çankırı</option>
+                        <option value="19">Çorum</option>
+                        <option value="20">Denizli</option>
+                        <option value="21">Diyarbakır</option>
+                        <option value="22">Edirne</option>
+                        <option value="23">Elazığ</option>
+                        <option value="24">Erzincan</option>
+                        <option value="25">Erzurum</option>
+                        <option value="26">Eskişehir</option>
+                        <option value="27">Gaziantep</option>
+                        <option value="28">Giresun</option>
+                        <option value="29">Gümüşhane</option>
+                        <option value="30">Hakkâri</option>
+                        <option value="31">Hatay</option>
+                        <option value="32">Isparta</option>
+                        <option value="33">Mersin</option>
+                        <option value="34">İstanbul</option>
+                        <option value="35">İzmir</option>
+                        <option value="36">Kars</option>
+                        <option value="37">Kastamonu</option>
+                        <option value="38">Kayseri</option>
+                        <option value="39">Kırklareli</option>
+                        <option value="40">Kırşehir</option>
+                        <option value="41">Kocaeli</option>
+                        <option value="42">Konya</option>
+                        <option value="43">Kütahya</option>
+                        <option value="44">Malatya</option>
+                        <option value="45">Manisa</option>
+                        <option value="46">Kahramanmaraş</option>
+                        <option value="47">Mardin</option>
+                        <option value="48">Muğla</option>
+                        <option value="49">Muş</option>
+                        <option value="50">Nevşehir</option>
+                        <option value="51">Niğde</option>
+                        <option value="52">Ordu</option>
+                        <option value="53">Rize</option>
+                        <option value="54">Sakarya</option>
+                        <option value="55">Samsun</option>
+                        <option value="56">Siirt</option>
+                        <option value="57">Sinop</option>
+                        <option value="58">Sivas</option>
+                        <option value="59">Tekirdağ</option>
+                        <option value="60">Tokat</option>
+                        <option value="61">Trabzon</option>
+                        <option value="62">Tunceli</option>
+                        <option value="63">Şanlıurfa</option>
+                        <option value="64">Uşak</option>
+                        <option value="65">Van</option>
+                        <option value="66">Yozgat</option>
+                        <option value="67">Zonguldak</option>
+                        <option value="68">Aksaray</option>
+                        <option value="69">Bayburt</option>
+                        <option value="70">Karaman</option>
+                        <option value="71">Kırıkkale</option>
+                        <option value="72">Batman</option>
+                        <option value="73">Şırnak</option>
+                        <option value="74">Bartın</option>
+                        <option value="75">Ardahan</option>
+                        <option value="76">Iğdır</option>
+                        <option value="77">Yalova</option>
+                        <option value="78">Karabük</option>
+                        <option value="79">Kilis</option>
+                        <option value="80">Osmaniye</option>
+                        <option value="81">Düzce</option>
+                      </select>
+                      <div class="reInputThr"></div>
+                      <!-- <div class="formbold-mb-5">
+                        <label for="message" class="formbold-form-label">
+                        </label>
+                        <textarea rows="6" name="message" id="message" placeholder="Mesajınız"
+                          class="formbold-form-input"></textarea>
+                      </div> -->
+                      <div class="form-check checkbox-lg">
+                        <input class="form-check-input" type="checkbox" id="vehicle1" name="vehicle1" value=""/>
+                        <label for="vehicle1"><a href="#">Hüküm ve koşulları okudum. Kabul ediyorum.</a></label>
+                      </div>
+                      <br/><div class="reInputFour"></div>
+                      <div class="form-check checkbox-lg">
+                        <input class="form-check-input" type="checkbox" id="vehicle2" name="vehicle2" value=""/>
+                        <label for="vehicle2"><a href="#">KVKK</a> metnini okudum. Onaylıyorum.</a></label>
+                      </div>
+                      <br/><div class="reInputFifth"></div>
+                      <!-- <input
+                        type="checkbox"
+                        id="vehicle1"
+                        name="vehicle1"
+                        value=""
+                      />
+                      <label for="vehicle1">
+                        <a href="#"
+                          >Hüküm ve koşulları okudum. Kabul ediyorum.</a
+                        ></label
+                      ><br />
+                      <div class="reInputFour"></div>
+                      <input
+                        type="checkbox"
+                        id="vehicle2"
+                        name="vehicle2"
+                        value=""
+                      />
+                      <label for="vehicle2">
+                        <a href="#">KVKK</a> metnini okudum. Onaylıyorum.</label
+                      ><br />
+                      <div class="reInputFifth"></div> -->
+                      <button
+                        type="button"
+                        class="btn btn-info prev backButton"
+                      >
+                        Geri
+                      </button>
+                      <button
+                        type="submit"
+                        class="btn btn-success first next"
+                        onclick=""
+                      >
+                        Gönder ve Sonucu Gör
+                      </button>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- <div class="tab-pane" id="wizard-step-99">
+          <div class="transition-container">
+            <div class="well">
+              <div class="row g-3">
+                <div class="col-md-12">
+                  <div class="formbold-main-wrapper">
+                    <div class="formbold-form-wrapper">
+                      <form
+                        action="https://formspree.io/f/meqwkbvn"
+                        method="POST"
+                      >
+                        <div class="formbold-mb-5">
+                          <label for="name" class="formbold-form-label">
+                            Ad Soyad
+                          </label>
+                          <input
+                            type="text"
+                            name="name"
+                            id="name"
+                            placeholder="Ad Soyad"
+                            class="formbold-form-input"
+                          />
+                        </div>
+
+                        <div class="formbold-mb-5">
+                          <label for="email" class="formbold-form-label">
+                            E-Posta Adresi
+                          </label>
+                          <input
+                            type="email"
+                            name="email"
+                            id="email"
+                            placeholder="ornek@ornek.com"
+                            class="formbold-form-input"
+                          />
+                        </div>
+
+                        <div class="formbold-mb-5 subject">
+                          <label for="subject" class="formbold-form-label">
+                            Hesaplama Sonucunuz
+                          </label>
+                          <input
+                            type="text"
+                            name="subject"
+                            id="subject"
+                            placeholder="Hesaplama Sonucu"
+                            class="formbold-form-input"
+                            value=""
+                          />
+                        </div>
+
+                        <div class="formbold-mb-5">
+                          <label for="message" class="formbold-form-label">
+                            Mesajınız
+                          </label>
+                          <textarea
+                            rows="6"
+                            name="message"
+                            id="message"
+                            placeholder="Mesajınız"
+                            class="formbold-form-input"
+                          ></textarea>
+                        </div>
+                        <button
+                          type="button"
+                          id="geriButton"
+                          class="btn btn-info prev"
+                          onclick="handleGeriButton()"
+                        >
+                          Geri
+                        </button>
+                        <button
+                          type="submit"
+                          class="btn btn-success first next"
+                          onclick=""
+                        >
+                          Gönder ve Sonucu Gör
+                        </button>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div> -->
+        <div class="tab-pane" id="step22">
+          <div class="well">
+            <div
+              class="row g-3 d-flex"
+              style="flex-direction: column; align-items: center"
+            >
+              <div class="result-tab col-md-4 mx-auto">
+                <h2
+                  class="form-label result-form d-flex justify-content-center pt-3"
+                  style="margin-top: 0.5rem"
+                >
+                  Hesaplama Sonucu
+                </h2>
+                <hr
+                  class="mx-auto"
+                  style="width: 70%; color: #78cce3; opacity: 100"
+                />
+                <h2
+                  id="sonuc"
+                  class="form-label result-form d-flex justify-content-center pt-4"
+                  style="font-size: 2.5rem"
+                >
+                  {{mainResult}}
+                </h2>
+                <p
+                  class="d-flex pt-5 justify-content-center pb-3"
+                  style="text-align: center; color: white"
+                >
+                  Detaylı bilgi için uzmanlarımız <br />
+                  tarafından aranacaksınız!
+                </p>
+              </div>
+              <p
+                class="col-md-4 d-flex"
+                style="text-align: center; font-size: 9px; color: red"
+              >
+                Tazminatsor.com hesaplama sonucu kesin ve nihai rakam olmamakla
+                beraber, yargılama aşamasında farklılık gösterebilmektedir.*
+              </p>
+            </div>
+          </div>
+        </div>
+        <!-- <div class="tab-pane" id="step22">
+          <div class="transition-container">
+            <div class="well">
+              <div class="row g-3">
+                <div
+                  class="col-md-12"
+                  style="display: flex; flex-direction: column"
+                >
+                  <br />
+                  <label
+                    class="form-label"
+                    style="
+                      display: block;
+                      margin-bottom: 1.5em;
+                      width: max-content;
+                    "
+                    >Hesaplama Sonucu:</label
+                  >
+                  <label
+                    id="sonuc"
+                    class="form-label"
+                    style="
+                      display: block;
+                      margin-bottom: 1.5em;
+                      width: max-content;
+                    "
+                    >{{mainResult}}
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div> -->
+      </div>
+    </div>
+    <hr />
+    <div class="content-contact">
+      <div class="container">
+        <div class="contact-text" style="margin: 2em 0">
+          <h5 class="card-title" style="font-family: neuemedium">
+            Aklınıza bir şey mi takıldı?
+          </h5>
+          <p style="margin-top: 0.5rem; margin-bottom: 0.75rem">
+            Size yardımcı olmamız için bizi arayabilirsiniz.
+          </p>
+          <a href="tel:02127060134" class="phone"
+            ><i class="bi bi-phone"></i>&nbsp; (0212) 706 0 134</a
+          >
+        </div>
+      </div>
+    </div>
+    <hr />
+    <footer class="d-none d-lg-block">
+      <div class="footer">
+        <div class="footer-links">
+          <div class="footer-container head_container container">
+            <div class="row">
+              <div class="col">
+                <a href="#"><img src="/assets/img/PNG.png" alt="" /></a>
+              </div>
+              <div class="footer-column col">
+                <ul>
+                  <li>
+                    <h5>Hizmetlerimiz</h5>
+                  </li>
+                  <li><a href="wizard-kidem.html">Kıdem Tazminatı</a></li>
+                  <li><a href="#">İş Kazası Tazminatı</a></li>
+                  <li><a href="wizard.html">Değer Kaybı Tazminatı</a></li>
+                  <li>
+                    <a href="wizard-trafik.html">Trafik Kazası Tazminatı</a>
+                  </li>
+                  <li><a href="wizard-miras.html">Miras Payı Hesaplama</a></li>
+                  <li>
+                    <a href="wizard-mesai.html">Fazla Çalışma Tazminatı</a>
+                  </li>
+                </ul>
+              </div>
+              <div class="footer-column col">
+                <ul>
+                  <li>
+                    <h5>Destek</h5>
+                  </li>
+                  <li><a href="about.html">Hakkımızda</a></li>
+                  <li><a href="howto.html">Nasıl Çalışır</a></li>
+                  <li><a href="contact.html">Bize Ulaşın</a></li>
+                  <li><a href="#">Sıkça Sorulan Sorular</a></li>
+                </ul>
+              </div>
+              <div class="footer-social col">
+                <ul>
+                  <li>
+                    <a
+                      href="https://www.facebook.com/profile.php?id=100086926898072&mibextid=LQQJ4d"
+                      target="_blank"
+                      ><i class="bi bi-facebook"></i
+                    ></a>
+                    <a href="https://twitter.com/tazminatsorcom" target="_blank"
+                      ><i class="bi bi-twitter"></i
+                    ></a>
+                    <a
+                      href="https://instagram.com/tazminatsorcom?igshid=YmMyMTA2M2Y="
+                      target="_blank"
+                      ><i class="bi bi-instagram"></i
+                    ></a>
+                    <a
+                      href="https://www.youtube.com/@tazminatsor/featured"
+                      target="_blank"
+                      ><i class="bi bi-youtube"></i
+                    ></a>
+                  </li>
+                </ul>
+                <a href=""
+                  ><i class="bi bi-phone"></i>&nbsp (0212) 706 0 134
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <hr />
+      <div class="container">
+        <div class="copywright">
+          <p>Copyright © 2023 tazminatsor.com, Tüm Hakları Saklıdır</p>
+        </div>
+      </div>
+    </footer>
+    <footer class="d-block d-lg-none">
+      <div class="footer">
+        <div class="footer-links">
+          <div class="footer-container head_container container">
+            <div class="row">
+              <div
+                class="col d-flex justify-content-center"
+                style="margin-bottom: 1rem"
+              >
+                <a href="#"><img src="/assets/img/PNG.png" alt="" /></a>
+              </div>
+
+              <div class="accordion accordion-flush" id="accordionFlushExample">
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="flush-headingOne">
+                    <button
+                      class="accordion-button collapsed"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#flush-collapseOne"
+                      aria-expanded="false"
+                      aria-controls="flush-collapseOne"
+                    >
+                      Hizmetlerimiz
+                    </button>
+                  </h2>
+                  <div
+                    id="flush-collapseOne"
+                    class="accordion-collapse collapse"
+                    aria-labelledby="flush-headingOne"
+                    data-bs-parent="#accordionFlushExample"
+                  >
+                    <a href="wizard-kidem.html" class="accordion-body"
+                      >Kıdem Tazminatı</a
+                    >
+                  </div>
+                  <div
+                    id="flush-collapseOne"
+                    class="accordion-collapse collapse"
+                    aria-labelledby="flush-headingOne"
+                    data-bs-parent="#accordionFlushExample"
+                  >
+                    <a href="#" class="accordion-body">İş Kazası Tazminatı</a>
+                  </div>
+                  <div
+                    id="flush-collapseOne"
+                    class="accordion-collapse collapse"
+                    aria-labelledby="flush-headingOne"
+                    data-bs-parent="#accordionFlushExample"
+                  >
+                    <a href="wizard.html" class="accordion-body"
+                      >Değer Kaybı Tazminatı</a
+                    >
+                  </div>
+                  <div
+                    id="flush-collapseOne"
+                    class="accordion-collapse collapse"
+                    aria-labelledby="flush-headingOne"
+                    data-bs-parent="#accordionFlushExample"
+                  >
+                    <a href="wizard-trafik.html" class="accordion-body"
+                      >Trafik Kazası Tazminatı</a
+                    >
+                  </div>
+                  <div
+                    id="flush-collapseOne"
+                    class="accordion-collapse collapse"
+                    aria-labelledby="flush-headingOne"
+                    data-bs-parent="#accordionFlushExample"
+                  >
+                    <a href="wizard-miras.html" class="accordion-body"
+                      >Miras Payı Hesaplama</a
+                    >
+                  </div>
+                  <div
+                    id="flush-collapseOne"
+                    class="accordion-collapse collapse"
+                    aria-labelledby="flush-headingOne"
+                    data-bs-parent="#accordionFlushExample"
+                  >
+                    <a href="wizard-mesai.html" class="accordion-body"
+                      >Fazla Çalışma Tazminatı</a
+                    >
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="flush-headingTwo">
+                    <button
+                      class="accordion-button collapsed"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#flush-collapseTwo"
+                      aria-expanded="false"
+                      aria-controls="flush-collapseTwo"
+                    >
+                      Destek
+                    </button>
+                  </h2>
+                  <div
+                    id="flush-collapseTwo"
+                    class="accordion-collapse collapse"
+                    aria-labelledby="flush-headingTwo"
+                    data-bs-parent="#accordionFlushExample"
+                  >
+                    <a href="about.html" class="accordion-body"
+                      >Hakkımızda</a
+                    >
+                  </div>
+                  <div
+                    id="flush-collapseTwo"
+                    class="accordion-collapse collapse"
+                    aria-labelledby="flush-headingTwo"
+                    data-bs-parent="#accordionFlushExample"
+                  >
+                    <a href="howto.html" class="accordion-body"
+                      >Nasıl Çalışır?</a
+                    >
+                  </div>
+                  <div
+                    id="flush-collapseTwo"
+                    class="accordion-collapse collapse"
+                    aria-labelledby="flush-headingTwo"
+                    data-bs-parent="#accordionFlushExample"
+                  >
+                    <a href="contact-form.html" class="accordion-body"
+                      >Size Ulaşalım</a
+                    >
+                  </div>
+                  <div
+                    id="flush-collapseTwo"
+                    class="accordion-collapse collapse"
+                    aria-labelledby="flush-headingTwo"
+                    data-bs-parent="#accordionFlushExample"
+                  >
+                    <a href="contact-form.html" class="accordion-body"
+                      >Sıkça Sorulan Sorular</a
+                    >
+                  </div>
+                </div>
+                <!-- <div class="accordion-item">
+                  <h2 class="accordion-header" id="flush-headingThree">
+                    <button
+                      class="accordion-button collapsed"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#flush-collapseThree"
+                      aria-expanded="false"
+                      aria-controls="flush-collapseThree"
+                    >
+                      Nasıl Çalışır?
+                    </button>
+                  </h2>
+                  <div
+                    id="flush-collapseThree"
+                    class="accordion-collapse collapse"
+                    aria-labelledby="flush-headingThree"
+                    data-bs-parent="#accordionFlushExample"
+                  >
+                    <p class="accordion-body">
+                      1. Hesaplamanı Tamamla Verilen tazminat seçeneklerinden
+                      sizi ilgilendiren hesaplamayı yapın ve uzmanlarımız
+                      hesaplanan tutarı alabilmeniz için sizi arasın. <br />2.
+                      Uzmanlarımız Tarafından Aran Uzmanlarımız süreç ile ilgili
+                      bilgilendirme yapmak için formun sonunda vermiş olduğunuz
+                      numaradan sizlere ulaşsın. <br />3. Hukuki Süreç
+                      Tarafımızca Yürütülsün Uzmanlarla görüşmenin ardından bize
+                      vereceğiniz yetkiyle hukuki süreci başlatalım ve sonlanana
+                      kadar takip edelim. <br />4. Paran Hesabına Yatsın Hukuki
+                      süreç sonunda hükmedilen kesin tazminatlar tahsil
+                      edilerek, paylaştığınız hesap bilgilerine %15 oranında
+                      hizmet bedeli kesildikten sonra aktarılsın.
+                    </p>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="flush-headingFour">
+                    <button
+                      class="accordion-button collapsed"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#flush-collapseFour"
+                      aria-expanded="false"
+                      aria-controls="flush-collapseFour"
+                    >
+                      Hakkımızda
+                    </button>
+                    <div
+                      id="flush-collapseFour"
+                      class="accordion-collapse collapse"
+                      aria-labelledby="flush-headingFour"
+                      data-bs-parent="#accordionFlushExample"
+                    >
+                      <p class="accordion-body">
+                        Tazminatsor.com olarak en büyük amacımız, hakları
+                        olduğunu düşünen kişilerin kolayca haklarını
+                        öğrenebilmesini ve öğrendiği haklarını alabilmesi için
+                        hızlı ve güvenli bir süreç sağlamaktır. Hakları olduğunu
+                        düşünen kişilerin, bilgiye ve tecrübeye ulaşım
+                        sıkıntısının önüne geçerek alanında uzman kişilerle
+                        buluşmasını sağlıyor ve tüm süreci onlar için
+                        yönetiyoruz.
+                      </p>
+                    </div>
+                  </h2>
+                </div> -->
+              </div>
+              <div class="footer-social col">
+                <ul>
+                  <li>
+                    <a
+                      href="https://www.facebook.com/profile.php?id=100086926898072&mibextid=LQQJ4d"
+                      target="_blank"
+                      ><i class="bi bi-facebook"></i
+                    ></a>
+                    <a href="https://twitter.com/tazminatsorcom" target="_blank"
+                      ><i class="bi bi-twitter"></i
+                    ></a>
+                    <a
+                      href="https://instagram.com/tazminatsorcom?igshid=YmMyMTA2M2Y="
+                      target="_blank"
+                      ><i class="bi bi-instagram"></i
+                    ></a>
+                    <a
+                      href="https://www.youtube.com/@tazminatsor/featured"
+                      target="_blank"
+                      ><i class="bi bi-youtube"></i
+                    ></a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script type="text/javascript" src="custom.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"></script>
+  </body>
+</html>

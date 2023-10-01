@@ -1,0 +1,730 @@
+@font-face {
+  font-family: neuemedium;
+  src: url(/assets/font/neue-haas-display-7.ttf);
+}
+
+@font-face {
+  font-family: neuethin;
+  src: url(/assets/font/neue-haas-display-xx.ttf);
+}
+
+@font-face {
+  font-family: neuethin2x;
+  src: url(/assets/font/neue-haas-display-x.ttf);
+}
+
+@font-face {
+  font-family: neueregular;
+  src: url(/assets/font/NeueHaasDisplayLight.ttf);
+}
+
+html,
+body {
+  overflow: unset;
+}
+
+#header {
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 0;
+
+}
+
+
+.head_container {
+  max-width: 75rem !important;
+  margin: auto !important;
+  width: 100% !important;
+}
+
+
+/* -------NAVBAR BAŞLANGIÇ -------- */
+.top {
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+  height: 2.5rem;
+  background: rgba(0, 0, 0, .29);
+  box-shadow: 0 0.0625rem 0.125rem #004e801a, 0 0.25rem 0.5rem #00000021;
+}
+
+.top-page {
+  background-color: rgb(23, 133, 70) !important;
+}
+
+.top-navbar-page {
+  background-color: #fff;
+}
+
+.down-page {
+  background: #fff;
+  box-shadow: 0 0.0625rem 0.125rem #004e801a, 0 0.25rem 0.5rem #00000021;
+}
+
+.not-sticky-bar {
+  height: 2.5rem;
+}
+
+.not-sticky-bar ul li a {
+  font-weight: 400;
+  font-size: .950rem;
+  color: #fff;
+  font-family: neuemedium;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.not-sticky-bar ul li {
+  display: inline-block;
+}
+
+.collapse ul li a {
+  margin-left: 1.25rem;
+  margin-right: 1.25rem;
+  font-family: neuemedium;
+  color: #fff;
+  text-decoration: none;
+  cursor: pointer;
+  font-size: 1.2rem;
+  font-weight: 400;
+
+}
+
+.collapse .dropdown-menu li a:hover {
+  background-color: #c1e3cc;
+}
+
+.not-sticky-bar ul li a:hover {
+  color: #c1e3cc;
+}
+
+.nav-item a:hover {
+  color: #c1e3cc;
+}
+
+.nav-item a {
+  color: #fff;
+}
+
+.nav-link:focus {
+  color: #c1e3cc !important;
+}
+
+.responsive-navbar {
+  padding: 1rem !important;
+  font-family: 'neuemedium';
+  font-size: 20px !important;
+}
+
+.responsive-navbar-social {
+  padding: 5rem 0;
+}
+
+.contact-ways>a,
+.contact-ways>div {
+  margin-bottom: 1rem !important;
+}
+
+.breadcrumb-item {
+  font-size: 1rem;
+  line-height: 1.5rem;
+  font-weight: 400;
+  letter-spacing: .25px;
+  font-family: neuemedium;
+  color: #1b1c1d !important;
+  text-decoration: none !important;
+}
+
+.breadcrumb-item a {
+  font-size: 1rem;
+  line-height: 1.5rem;
+  font-weight: 400;
+  letter-spacing: .25px;
+  font-family: neuemedium;
+  color: #1b1c1d !important;
+  text-decoration: none !important;
+}
+
+.breadcrumb-top {
+  background: #f1f3f4;
+  padding: 0.75rem 0;
+}
+
+.breadcrumb {
+  margin: 0 !important;
+}
+
+
+#navbar {
+  background-color: transparent;
+  color: black;
+  transition: background-color 0.5s ease, color 0.5s ease;
+  /* padding: 10px; */
+  z-index: 10;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+}
+
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  /* margin: 0 !important; */
+}
+
+.collapse>ul .dropdown-item {
+  color: #1b1c1d;
+  margin-left: 0;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  font-weight: 400;
+  letter-spacing: .25px;
+  padding: 0 16px;
+  height: 48px;
+  align-items: center;
+  display: flex;
+}
+
+.collapse>ul .dropdown-item:hover {
+  background-color: rgba(23, 133, 70, .06) !important;
+}
+
+
+
+
+
+/* -------NAVBAR BİTİŞ -------- */
+/* -------BANNER BACKGROUND BAŞLANGIÇ -------- */
+.navbar-brand img {
+  width: 180px;
+}
+
+.section_container {
+  background: linear-gradient(180deg, #178f64 0%, #078283 47.02%, #008fc3 96.03%);
+  height: 32.625rem;
+}
+
+.home-for-bg {
+  background-image: url('assets/home-bg2.png');
+  padding-bottom: 8.4375rem;
+  padding-top: 4.6875rem;
+  height: 100%;
+  width: 100%;
+  height: 100%;
+  background-position: bottom center;
+  background-repeat: no-repeat;
+}
+
+/* -------BANNER BACKGROUND BİTİŞ -------- */
+/* -------BANNER BUTTON BAŞLANGIÇ-------- */
+.banner-btn .btn {
+  background-color: #fff !important;
+  border: transparent !important;
+  color: #219752 !important;
+  font-family: neuemedium !important;
+  min-width: 260px;
+  min-height: 50px;
+  font-size: .950rem;
+  font-weight: 400;
+  text-decoration: none;
+
+}
+
+.banner-btn .btn:hover {
+  background-color: #219752 !important;
+  border: transparent !important;
+  color: #fff !important;
+  font-family: neuemedium !important;
+  min-width: 260px;
+  min-height: 50px;
+  transition: 0.3s;
+
+}
+
+.home-pg-for-buttons {
+  padding-top: 3.9rem;
+}
+
+/* -------BANNER BUTTON BTİŞ-------- */
+/* -------İŞLEM SÜRECİ BAŞLANGIÇ-------- */
+.process {
+  padding: 3rem 5rem 0 5rem !important;
+  text-align: center;
+}
+
+.process-item {
+  display: flex;
+  justify-content: center;
+  padding-top: 10px;
+  color: #178546;
+  font-family: neuemedium;
+}
+
+/* -------İŞLEM SÜRECİ BİTİŞ-------- */
+
+.main-content {
+  padding-top: 17rem;
+}
+
+.main-content-title {
+  display: inline-block;
+  color: #178546;
+  margin-bottom: 1.5rem;
+  padding: 1 0rem;
+  font-family: neuemedium;
+  line-height: 3.75rem;
+  font-weight: 400;
+  letter-spacing: normal;
+}
+
+.main-content-title-responsive {
+  display: inline-block;
+  color: #178546;
+  margin-bottom: 1.5rem;
+  padding: 1 0rem;
+  font-family: neuemedium;
+  font-weight: 400;
+  letter-spacing: normal;
+}
+
+.main-video-card {
+  box-shadow: 0 0.25rem 0.5rem #004e8014, 0 0.75rem 1.5rem #0000001f;
+  margin-bottom: 1.5rem;
+  border: transparent !important;
+}
+
+.main-video-card .card-body .btn {
+  background-color: #178546;
+  border: transparent;
+}
+
+.main-video-card .card-body .btn:hover {
+  background-color: #fff;
+  color: #178546;
+  border: 1px solid #178546;
+  transition: 0.4s;
+}
+
+.main-about-card .card-title {
+  padding-top: 1.4rem;
+}
+
+.main-about-card {
+  box-shadow: 0 0.25rem 0.5rem #004e8014, 0 0.75rem 1.5rem #0000001f;
+  border: transparent !important;
+
+}
+
+.more-button {
+  font-size: 1rem;
+  letter-spacing: .25px;
+  font-family: neuemedium;
+  color: #178546;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.more-button:hover {
+  text-decoration: underline;
+  color: #178546;
+}
+
+
+.main-content2-cardbody h4,
+.main-content2-cardbody p {
+  display: flex;
+  padding-left: 1rem;
+  color: #fff;
+}
+
+.main-content2 {
+  background-color: #178546;
+  padding-top: 5rem;
+}
+
+
+
+.progress2 {
+  position: relative;
+  padding-left: 45px !important;
+  list-style: none;
+  counter-reset: step;
+}
+
+.progressbar2-item {
+  position: relative;
+  counter-increment: list;
+  margin: 10px;
+}
+.progressbar2-item:not(:last-child) {
+  padding-bottom: 20px;
+}
+.progressbar2-item::before {
+  
+  display: inline-block;
+  content: '';
+  position: absolute;
+  left: -6%;
+  height: 100%;
+  width: 10px;
+  top: 30%;
+}
+.progressbar2-item::after {
+  
+  content: '';
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  left: -11%;
+  width: 50px;
+  height: 50px;
+  border: 2px solid #CCC;
+  border-radius: 50%;
+  background-color: #FFF;
+}
+
+.progressbar2-item.current::before {
+  border-left: 2px solid white;
+}
+.progressbar2-item.current::after {
+  content: counter(list);
+  padding-top: 1px;
+  width: 50px;
+  height: 50px;
+  top: -4px;
+  left: -10%;
+  font-size: 1.6rem;
+  text-align: center;
+  color: white;
+  border: 4px solid white;
+  background-color: #178546;
+}
+
+.progressbar2-item.current:last-child::before {
+  content: none;
+}
+.progressbar2-content{
+  margin: 0 5%;
+}
+
+.progressbar2-content h4,.progressbar2-content p{
+  color: white;
+}
+
+
+/* .progressbar {
+  position: relative;
+  counter-reset: step;
+}
+
+.progressbar li {
+  list-style: none;
+  display: flex;
+  position: relative;
+}
+
+.progressbar li:before {
+  content: counter(step);
+  counter-increment: step;
+  width: 50px;
+  height: 50px;
+  line-height: 30px;
+  border: 5px solid #fff;
+  border-radius: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0px 0 80px 0;
+  z-index: 5;
+  font-size: 1.9rem;
+  color: #fff;
+}
+
+.progressbar li:after {
+  content: "";
+  position: absolute;
+  width: 1px;
+  height: 85px;
+  background-color: #fff;
+  top: -85px;
+  right: 95%;
+  z-index: 1;
+}
+
+.progressbar li:last-child:after {
+  content: "";
+  position: absolute;
+  width: 1px;
+  height: 85px;
+  background-color: #fff;
+  top: -150px !important;
+  right: 95%;
+  z-index: 1;
+}
+
+.progressbar li:first-child:after {
+  content: none;
+}
+
+.progressbar li.active {
+  color: green;
+} */
+
+
+.accordion-collapse a {
+  color: #1b1c1d;
+  text-decoration: none;
+  font-size: 1rem;
+  font-family: neueregular;
+
+}
+
+.accordion-collapse p {
+  color: #1b1c1d;
+  text-decoration: none;
+  font-size: 1rem;
+  font-family: neueregular;
+
+}
+
+.accordion-collapse {
+  padding: 10px 0;
+}
+
+.accordion-button {
+  font-family: neuemedium;
+}
+
+.accordion-button:not(.collapsed) {
+  color: black !important;
+}
+
+.accordion-button:focus {
+  border: 0;
+}
+
+.footer-links {
+  padding: 5rem 0 2rem 0;
+}
+
+.footer-container .row .col img {
+  width: 180px;
+}
+
+
+.footer-column ul li {
+  list-style: none;
+  margin: 0 0 15px 0;
+}
+
+.footer-column ul li a {
+  text-decoration: none;
+  color: #1b1c1d;
+  font-size: .875rem;
+  line-height: 1.375rem;
+  font-weight: 400;
+  letter-spacing: .25px;
+  font-family: neuemedium !important;
+}
+
+.footer-column ul li h5 {
+  font-family: neuemedium;
+  font-size: .875rem;
+  line-height: 1.375rem;
+  font-weight: 400;
+  letter-spacing: .25px;
+}
+
+.footer-social {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-social ul li {
+  list-style: none;
+}
+
+.footer-social a {
+  text-decoration: none;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  font-weight: 400;
+  letter-spacing: .25px;
+  color: #178546;
+  font-family: neuemedium;
+}
+
+.bi-phone {
+  font-weight: 500;
+}
+
+ul {
+  padding: 1rem 0 !important;
+}
+
+.modal-dialog{
+  max-width: 75% !important;
+}
+
+/* media */
+@media screen and (min-width: 768px) and (max-width: 992px){
+  .progressbar2-content{
+    margin: 0 10%;
+  }
+  .progress2 {
+    padding-left: 30px !important;
+  }
+  .progressbar2-item::before{
+    left: -6%;
+    top: 20%;
+  }
+} 
+
+@media screen and (min-width: 992px) and (max-width: 1200px){
+  .progressbar2-content{
+    margin: 0 10%;
+  }
+  .progress2 {
+    padding-left: 30px !important;
+  }
+  .progressbar2-item::before{
+    left: -4%;
+    top: 20%;
+  }
+} 
+
+@media screen and (min-width: 576px) and (max-width: 772px){
+  .progressbar2-content{
+    margin: 0 10%;
+  }
+  .progress2 {
+    padding-left: 30px !important;
+  }
+  .progressbar2-item::before{
+    left: -5%;
+  }
+} 
+  
+@media screen and (max-width: 992px) {
+  .process {
+    padding: 0 !important;
+  }
+  
+  .process-card .card-body img {
+    width: 120px;
+  }
+
+  .process-card .card-body .process-item {
+    color: #fff;
+  }
+
+  .main-content {
+    padding-top: 2rem;
+  }
+
+  .phone-responsive {
+    width: 100%;
+  }
+
+  .howto {
+    margin-top: 12rem;
+  }
+
+  .banner-btn button {
+    box-shadow: 0 0.0625rem 0.125rem #004e801a, 0 0.25rem 0.5rem #00000021;
+  }
+
+  .footer-social a {
+    font-size: 2rem;
+    line-height: 4.5rem;
+    margin: 0.9rem;
+  }
+}
+
+@media screen and (max-width: 540px) {
+  .process {
+    padding: 0 0 0.9rem 0 !important;
+  }
+
+  .process-card .card-body img {
+    width: 80px;
+  }
+  .main-content-title{
+    font-size: larger !important;
+  }
+  .progress2 {
+    padding-left: 30px !important;
+  }.progressbar2-content{
+    margin: 0 10%;
+  }.progressbar2-item::before{
+    left: -3%;
+    top: 20%;
+  }
+  
+  
+
+}
+
+.wp-float {
+  position: fixed;
+  width: 60px;
+  height: 60px;
+  bottom: 40px;
+  right: 20px;
+  background-color: #25d366;
+  color: #FFF;
+  border-radius: 50px;
+  text-align: center;
+  font-size: 30px;
+  box-shadow: 2px 2px 3px #999;
+  z-index: 100;
+}
+
+.my-float {
+  margin-top: 16px;
+}
+
+.subject {
+  display: none;
+}
+
+.main-forum-title {
+  display: inline-block;
+  color: #178546 !important;
+  margin-bottom: 1.5rem;
+  padding: 1 0rem;
+  font-family: neuemedium;
+  font-weight: 400;
+  letter-spacing: normal;
+}
+
+.result-tab {
+  background-color: #178546 !important;
+  border-radius: 20px !important;
+  width: 350px !important;
+}
+
+.result-form {
+  display: inline-block !important;
+  color: white !important;
+  margin-bottom: 1.5rem !important;
+  padding: 1 0rem !important;
+  font-family: neuemedium !important;
+  font-weight: 400 !important;
+  letter-spacing: normal !important;
+}
+
+.checkbox-lg .form-check-input {
+  top: .8rem;
+  scale: 1.4;
+  margin-right: 0.7rem;
+}
+
+.checkbox-lg {
+  padding-top: 10px !important;
+}
