@@ -4,8 +4,7 @@
   color: currentColor !important;
   padding: 0.8rem;
   outline: none !important;
-  width: 100% !important;
-  max-width: 100% !important;
+  max-width: 90% !important;
   vertical-align: bottom !important;
   text-align: inherit !important;
   box-sizing: content-box !important;

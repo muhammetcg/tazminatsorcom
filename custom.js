@@ -61,9 +61,8 @@ nextButtons.forEach((nextButton) => {
             e.preventDefault()
           } else {
             // İkinci adımı belirtilen süre (2 saniye) geciktir
-            const delayTime = 2500
 
-            setTimeout(() => {
+
               // Yeni adıma geçiş yap
               tabContents[currentTab].style.display = 'none'
               currentTab++
@@ -71,7 +70,7 @@ nextButtons.forEach((nextButton) => {
 
               updateProgressBar()
               restoreSelectedRadios()
-            }, delayTime)
+
           }
         } else {
           tabContents[currentTab].style.display = 'none'
@@ -173,7 +172,10 @@ document.addEventListener('DOMContentLoaded', function () {
       updateErrorMessage('name-error', 'Ad Soyad alanı boş bırakılamaz.')
     }
 
-    if (phoneInput.value.trim() === '') {
+    if (
+      phoneInput.value.trim() === '' &&
+      phoneInput.value.trim().replace(/\D/g, '').length < 11
+    ) {
       e.preventDefault()
       updateErrorMessage(
         'phone-error',
